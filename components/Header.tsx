@@ -18,7 +18,7 @@ const links = [
 
 export default function Header() {
   return (
-    <header className="max-w-screen-2xl mx-auto px-4 2xl:px-0 py-8 flex justify-between items-center">
+    <header className="max-w-screen-2xl mx-auto p-8 flex justify-between items-center">
       <Link href="/">
         <a className="select-none text-lg font-semibold uppercase tracking-wider">Hynek Fišera</a>
       </Link>
