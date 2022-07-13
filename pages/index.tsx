@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Project } from "../types/Project";
 import Flairleap from "../public/portfolio/flairleap.svg";
+import Arfi from "../public/portfolio/arfi.svg";
 import Swiftpass from "../public/portfolio/swiftpass.svg";
 import Acewill from "../public/portfolio/acewill.png";
 import Garnet from "../public/portfolio/garnet.png";
@@ -19,6 +20,13 @@ const projects: Project[] = [
     name: "Flairleap",
     description: "Social network which helps creators with presenting projects, building brands and reaching target audiences",
     href: "https://flairleap.com/",
+  },
+  {
+    type: "YouTube channel",
+    logo: Arfi,
+    name: "Arfi",
+    description: "The quickest and easiest way to learn web development online",
+    href: "https://arfi.cz/",
   },
   {
     type: "Web application",
@@ -49,7 +57,7 @@ const projects: Project[] = [
     href: "https://www.twitch.tv/eryesloleague",
   },
   {
-    type: "Logo design",
+    type: "Website",
     logo: Vrcc,
     name: "VRCC",
     description: "I developed a website for the VR Component Constructor project",
