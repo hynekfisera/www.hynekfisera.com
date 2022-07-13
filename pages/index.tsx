@@ -66,17 +66,17 @@ const Home: NextPage = () => {
   return (
     <>
       <main className="max-w-screen-2xl mx-auto px-4 2xl:px-0">
-        <section className="mt-16" id="about-me">
-          <h1 className="text-5xl max-w-[90%] font-bold leading-snug text-gray-900">
+        <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl max-w-[90%] font-bold !leading-snug text-gray-900">
             Full-stack web <span className="text-indigo-600">developer</span> and YouTube <span className="text-indigo-600">content creator</span> also interested in UI/UX design and digital art
           </h1>
-          <h2 className="mt-4 text-lg font-medium text-indigo-600">
+          <h2 className="mt-4 sm:text-lg font-medium text-indigo-600">
             See what I{"'"}ve been working on <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
           </h2>
         </section>
-        <section className="my-20 grid grid-cols-3" id="portfolio">
+        <section className="my-12 sm:my-16 lg:my-20 grid sm:grid-cols-2 xl:grid-cols-3" id="portfolio">
           {projects.map((project) => (
-            <div key={project.name} className="flex flex-col items-center gap-3 py-12 px-8 hover:bg-gray-50">
+            <div key={project.name} className="flex flex-col items-center gap-3 py-8 px-6 sm:py-12 sm:px-8 hover:bg-gray-50">
               <div className="uppercase tracking-wider text-gray-700">{project.type}</div>
               <div className="h-12 w-full relative">
                 <Image src={project.logo} alt={`${project.name} logo`} layout="fill" objectFit="contain" />
