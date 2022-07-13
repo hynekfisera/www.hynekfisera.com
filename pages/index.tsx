@@ -1,4 +1,4 @@
-import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -71,12 +71,12 @@ const Home: NextPage = () => {
             Full-stack web <span className="text-indigo-600">developer</span> and YouTube <span className="text-indigo-600">content creator</span> also interested in UI/UX design and digital art
           </h1>
           <h2 className="mt-4 sm:text-lg font-medium text-indigo-600">
-            See what I{"'"}ve been working on <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
+            See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1" />
           </h2>
         </section>
         <section className="my-12 sm:my-16 lg:my-20 grid sm:grid-cols-2 xl:grid-cols-3" id="portfolio">
           {projects.map((project) => (
-            <div key={project.name} className="flex flex-col items-center gap-3 py-8 px-6 sm:py-12 sm:px-8 hover:bg-gray-50">
+            <div key={project.name} className="flex flex-col items-center gap-3 py-8 px-6 sm:py-12 sm:px-8">
               <div className="uppercase tracking-wider text-gray-700">{project.type}</div>
               <div className="h-12 w-full relative">
                 <Image src={project.logo} alt={`${project.name} logo`} layout="fill" objectFit="contain" />
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
               <div className="text-center text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
                 <Link href={project.href}>
-                  <a className="uppercase text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  <a className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400">
                     Learn more <FontAwesomeIcon icon={faChevronRight} />
                   </a>
                 </Link>
