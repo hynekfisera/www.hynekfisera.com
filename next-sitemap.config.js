@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-const config = {
+module.exports = {
   siteUrl: "https://www.fisera.co",
   generateRobotsTxt: true,
   robotsTxtOptions: {
@@ -7,5 +7,3 @@ const config = {
   },
   exclude: ["/404", "/500"],
 };
-
-export default config;
