@@ -1,5 +1,6 @@
 module.exports = {
   defaultTitle: "Hynek Fišera | Web Development & UX Design",
+  titleTemplate: "%s - Hynek Fišera | Web Development & UX Design",
   description: "My name is Hynek and I am a Web Developer from Czech Republic. I'm also interested in logo design, UI/UX design and branding.",
   openGraph: {
     type: "website",
