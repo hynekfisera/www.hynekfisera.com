@@ -4,17 +4,24 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Project } from "../types/Project";
-import Flairleap from "../public/portfolio/flairleap.svg";
-import Arfi from "../public/portfolio/arfi.svg";
-import Swiftpass from "../public/portfolio/swiftpass.svg";
-import Acewill from "../public/portfolio/acewill.png";
-import Garnet from "../public/portfolio/garnet.png";
-import Eryes from "../public/portfolio/eryes.png";
-import Vrcc from "../public/portfolio/vrcc.png";
-import Nylium from "../public/portfolio/nylium.png";
+import Flairleap from "/public/portfolio/flairleap.svg";
+import FlairleapPortfolio from "/public/portfolio/portfolioFlairleap.png";
+import Swiftpass from "/public/portfolio/swiftpass.svg";
+import SwiftpassPortfolio from "/public/portfolio/portfolioSwiftpass.png";
+import Acewill from "/public/portfolio/acewill.png";
+import AcewillPortfolio from "/public/portfolio/portfolioAcewill.png";
+import Garnet from "/public/portfolio/garnet.png";
+import GarnetPortfolio from "/public/portfolio/portfolioGarnet.png";
+import Eryes from "/public/portfolio/eryes.png";
+import EryesPortfolio from "/public/portfolio/portfolioEryes.png";
+import Nylium from "/public/portfolio/nylium.png";
+import NyliumPortfolio from "/public/portfolio/portfolioNylium.png";
+import Vrcc from "/public/portfolio/vrcc.png";
+import Arfi from "/public/portfolio/arfi.svg";
 
 const projects: Project[] = [
   {
+    image: FlairleapPortfolio,
     type: "Social network",
     logo: Flairleap,
     name: "Flairleap",
@@ -22,13 +29,7 @@ const projects: Project[] = [
     href: "https://flairleap.com/",
   },
   {
-    type: "YouTube channel",
-    logo: Arfi,
-    name: "Arfi",
-    description: "The quickest and easiest way to learn web development online",
-    href: "https://arfi.cz/",
-  },
-  {
+    image: SwiftpassPortfolio,
     type: "Web application",
     logo: Swiftpass,
     name: "Swiftpass",
@@ -36,6 +37,7 @@ const projects: Project[] = [
     href: "https://swiftpass.fisera.co/",
   },
   {
+    image: AcewillPortfolio,
     type: "UX design",
     logo: Acewill,
     name: "Acewill",
@@ -43,6 +45,7 @@ const projects: Project[] = [
     href: "http://aprocle.com/",
   },
   {
+    image: GarnetPortfolio,
     type: "Logo design",
     logo: Garnet,
     name: "Garnet",
@@ -50,11 +53,19 @@ const projects: Project[] = [
     href: "https://github.com/GarnetOS",
   },
   {
+    image: EryesPortfolio,
     type: "Social media",
     logo: Eryes,
     name: "Eryes",
     description: "I created livestream overlays and social media posts for the Eryes league",
     href: "https://www.twitch.tv/eryesloleague",
+  },
+  {
+    image: NyliumPortfolio,
+    type: "Website",
+    logo: Nylium,
+    name: "Nylium",
+    description: "I coded a website for the Nylium Survival minecraft server",
   },
   {
     type: "Website",
@@ -63,10 +74,11 @@ const projects: Project[] = [
     description: "I developed a website for the VR Component Constructor project",
   },
   {
-    type: "Website",
-    logo: Nylium,
-    name: "Nylium",
-    description: "I coded a website for the Nylium Survival minecraft server",
+    type: "YouTube channel",
+    logo: Arfi,
+    name: "Arfi",
+    description: "The quickest and easiest way to learn web development online",
+    href: "https://arfi.cz/",
   },
 ];
 
@@ -82,14 +94,19 @@ const Home: NextPage = () => {
             See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1" />
           </h2>
         </section>
-        <section className="my-12 sm:my-16 lg:my-20 grid sm:grid-cols-2 xl:grid-cols-3" id="portfolio">
+        <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3" id="portfolio">
           {projects.map((project) => (
             <div key={project.name} className="flex flex-col items-center gap-3 py-8 px-6 sm:py-12 sm:px-8">
-              <div className="uppercase tracking-wider text-gray-700">{project.type}</div>
-              <div className="h-12 w-full relative">
+              {project.image && (
+                <div className="w-full h-48 sm:h-64 relative -mb-3">
+                  <Image src={project.image} alt={`${project.name} showcase`} layout="fill" objectFit="contain" />
+                </div>
+              )}
+              <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
+              <div className="h-8 sm:h-12 sm:max-w-[50%] w-full relative">
                 <Image src={project.logo} alt={`${project.name} logo`} layout="fill" objectFit="contain" />
               </div>
-              <div className="text-center text-lg font-medium text-gray-900">{project.description}</div>
+              <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
                 <Link href={project.href}>
                   <a className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400">
