@@ -5,6 +5,7 @@ import { DefaultSeo } from "next-seo";
 import SEO from "../next-seo.config";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import Footer from "../components/Footer";
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo {...SEO} />
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
