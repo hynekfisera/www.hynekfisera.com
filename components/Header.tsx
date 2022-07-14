@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,10 @@ const links = [
   {
     text: "About me",
     href: "/#about-me",
+  },
+  {
+    text: "Social",
+    href: "/links",
   },
   {
     text: "Contact",
