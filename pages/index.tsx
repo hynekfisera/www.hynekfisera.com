@@ -34,7 +34,7 @@ const projects: Project[] = [
     logo: Swiftpass,
     name: "Swiftpass",
     description: "Smart password generator which can generate not only strong, but also quick-to-enter passwords",
-    href: "https://swiftpass.fisera.co/",
+    href: "https://swiftpass.hynekfisera.com/",
   },
   {
     image: AcewillPortfolio,

@@ -68,10 +68,10 @@ export default function Links() {
       <NextSeo
         title="Links"
         description="Here are links to my GitHub, LinkedIn and other social media profiles"
-        canonical="https://www.fisera.co/links"
+        canonical="https://www.hynekfisera.com/links"
         openGraph={{
           type: "website",
-          url: "https://www.fisera.co/links",
+          url: "https://www.hynekfisera.com/links",
           title: "Links - Hynek Fišera | Web Development & UX Design",
           description: "Here are links to my GitHub, LinkedIn and other social media profiles",
           site_name: "Hynek Fišera",
