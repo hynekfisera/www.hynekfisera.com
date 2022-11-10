@@ -65,7 +65,7 @@ const projects: Project[] = [
     type: "Web application",
     logo: Helpdesk,
     name: "HelpDesk",
-    description: "Ticket system project for my high school",
+    description: "Ticket support project for my high school",
     href: "https://kyberna.cz/",
   },
   {
@@ -139,10 +139,11 @@ const Home: NextPage = () => {
       <main className="max-w-screen-2xl mx-auto px-6">
         <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
           <h1 className="text-2xl sm:text-3xl lg:text-5xl max-w-[90%] font-bold !leading-snug text-gray-900">
-            Full-stack web <span className="text-indigo-600">developer</span> and YouTube <span className="text-indigo-600">content creator</span> also interested in UI/UX design and digital art
+            Full-stack web <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">developer</span> and YouTube <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">content creator</span> also interested in UI/UX design
+            and digital art
           </h1>
-          <h2 className="mt-4 sm:text-lg font-medium text-indigo-600">
-            See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1" />
+          <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+            See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
           </h2>
         </section>
         <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3" id="portfolio">
