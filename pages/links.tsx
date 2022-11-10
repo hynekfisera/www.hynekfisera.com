@@ -81,14 +81,14 @@ export default function Links() {
         <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">Links</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0">
           {links.map((link, i) => (
-            <Link href={link.href} key={i}>
-              <a
-                className={`mb-4 flex justify-center items-center gap-1 w-full text-lg font-medium text-center border rounded-md py-2 transition duration-200 hover:text-white ${
-                  link.type === "primary" ? "border-indigo-600 text-indigo-600 hover:bg-indigo-500" : "border-slate-600 text-slate-600 hover:bg-slate-600"
-                }`}
-              >
-                {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title}
-              </a>
+            <Link
+              href={link.href}
+              key={i}
+              className={`mb-4 flex justify-center items-center gap-1 w-full text-lg font-medium text-center border rounded-md py-2 transition duration-200 hover:text-white ${
+                link.type === "primary" ? "border-indigo-600 text-indigo-600 hover:bg-indigo-500" : "border-slate-600 text-slate-600 hover:bg-slate-600"
+              }`}
+            >
+              {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title}
             </Link>
           ))}
         </div>

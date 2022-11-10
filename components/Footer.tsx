@@ -7,16 +7,22 @@ export default function Footer() {
       <div className="text-center">&copy; Hynek Fišera 2022</div>
       <div className="text-center">
         Built {"&"} deployed using{" "}
-        <Link href="https://nextjs.org/">
-          <a className="text-indigo-600 hover:text-indigo-400">Next.js</a>
+        <Link
+          href="https://nextjs.org/"
+          className="text-indigo-600 hover:text-indigo-400">
+          Next.js
         </Link>
         ,{" "}
-        <Link href="https://tailwindcss.com/">
-          <a className="text-indigo-600 hover:text-indigo-400">Tailwind</a>
+        <Link
+          href="https://tailwindcss.com/"
+          className="text-indigo-600 hover:text-indigo-400">
+          Tailwind
         </Link>{" "}
         and{" "}
-        <Link href="https://vercel.com/">
-          <a className="text-indigo-600 hover:text-indigo-400">Vercel</a>
+        <Link
+          href="https://vercel.com/"
+          className="text-indigo-600 hover:text-indigo-400">
+          Vercel
         </Link>
       </div>
     </footer>

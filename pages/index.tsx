@@ -49,20 +49,20 @@ const projects: Project[] = [
     href: "http://aprocle.com/",
   },
   {
-    image: AcewillPortfolio,
-    type: "Web application",
-    logo: Helpdesk,
-    name: "HelpDesk",
-    description: "Ticket system project for my high school",
-    href: "https://kyberna.cz/",
-  },
-  {
     image: GarnetPortfolio,
     type: "Logo design",
     logo: Garnet,
     name: "Garnet",
     description: "I designed a logo for the Garnet operating system",
     href: "https://github.com/GarnetOS",
+  },
+  {
+    image: AcewillPortfolio,
+    type: "Web application",
+    logo: Helpdesk,
+    name: "HelpDesk",
+    description: "Ticket system project for my high school",
+    href: "https://kyberna.cz/",
   },
   {
     image: NyliumPortfolio,
@@ -90,7 +90,7 @@ const projects: Project[] = [
     image: NekrPortfolio,
     type: "Website",
     name: "HNK NEKR s.r.o.",
-    description: "I created a website for a company which provides comprehensive services and supplies for construction machinery",
+    description: "Website for a company which provides services and supplies for construction machinery",
     href: "https://hnk-nekr.cz/",
   },
   {
@@ -142,20 +142,18 @@ const Home: NextPage = () => {
           {projects.map((project) => (
             <div key={project.name} className="flex flex-col items-center gap-3 py-8 px-6 sm:py-12 sm:px-8">
               {project.image && (
-                <div className="w-full h-48 sm:h-64 relative -mb-3">
-                  <Image src={project.image} alt={`${project.name} showcase`} layout="fill" objectFit="contain" />
+                <div className="w-full max-w-[80%] h-auto">
+                  <Image src={project.image} alt={`${project.name} showcase`} />
                 </div>
               )}
               <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
-              <div className={`${project.logo ? "h-8 sm:h-12 sm:max-w-[50%]" : "h-4 sm:h-8"} w-full relative flex items-center justify-center`}>
-                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} layout="fill" objectFit="contain" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
+              <div className={`${project.logo ? "sm:max-w-[50%]" : "h-4 sm:h-8"} w-full relative flex items-center justify-center`}>
+                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} className="max-h-8 sm:max-h-12 w-auto max-w-[90%]" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
               </div>
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
-                <Link href={project.href}>
-                  <a className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400">
-                    Learn more <FontAwesomeIcon icon={faChevronRight} />
-                  </a>
+                <Link href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400">
+                  Learn more <FontAwesomeIcon icon={faChevronRight} />
                 </Link>
               )}
             </div>
