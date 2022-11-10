@@ -19,14 +19,18 @@ import ArlbPortfolio from "/public/portfolio/portfolioARLB.png";
 import Nylium from "/public/portfolio/nylium.png";
 import NyliumPortfolio from "/public/portfolio/portfolioNylium.png";
 import Vrcc from "/public/portfolio/vrcc.png";
+import VrccPortfolio from "/public/portfolio/portfolioVrcc.png";
 import Arfi from "/public/portfolio/arfi.svg";
+import ArfiPortfolio from "/public/portfolio/portfolioArfi.png";
 import NekrPortfolio from "/public/portfolio/portfolioNekr.png";
 import Helpdesk from "/public/portfolio/helpdesk.svg";
+import HelpdeskPortfolio from "/public/portfolio/portfolioHelpdesk.png";
+import KittisarusPortfolio from "/public/portfolio/portfolioKittisaurus.png";
 
 const projects: Project[] = [
   {
     image: FlairleapPortfolio,
-    type: "Social network",
+    type: "Web application",
     logo: Flairleap,
     name: "Flairleap",
     description: "Social network which helps creators with presenting projects, building brands and reaching target audiences",
@@ -42,7 +46,7 @@ const projects: Project[] = [
   },
   {
     image: AcewillPortfolio,
-    type: "UX design",
+    type: "UI design",
     logo: Acewill,
     name: "Acewill",
     description: "I designed a prototype of the Acewill operating system distributed by Aprocle",
@@ -57,7 +61,7 @@ const projects: Project[] = [
     href: "https://github.com/GarnetOS",
   },
   {
-    image: AcewillPortfolio,
+    image: HelpdeskPortfolio,
     type: "Web application",
     logo: Helpdesk,
     name: "HelpDesk",
@@ -89,17 +93,19 @@ const projects: Project[] = [
   {
     image: NekrPortfolio,
     type: "Website",
-    name: "HNK NEKR s.r.o.",
+    name: "HNK NEKR",
     description: "Website for a company which provides services and supplies for construction machinery",
     href: "https://hnk-nekr.cz/",
   },
   {
+    image: VrccPortfolio,
     type: "Website",
     logo: Vrcc,
     name: "VRCC",
     description: "I developed a website for the VR Component Constructor project",
   },
   {
+    image: ArfiPortfolio,
     type: "YouTube channel",
     logo: Arfi,
     name: "Arfi",
@@ -107,6 +113,7 @@ const projects: Project[] = [
     href: "https://arfi.cz/",
   },
   {
+    image: KittisarusPortfolio,
     type: "Web application",
     name: "Kittisaurus",
     description: "Kittisaurus personality test - which cat are you?",
@@ -148,7 +155,7 @@ const Home: NextPage = () => {
               )}
               <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
               <div className={`${project.logo ? "sm:max-w-[50%]" : "h-4 sm:h-8"} w-full relative flex items-center justify-center`}>
-                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} className="max-h-8 sm:max-h-12 w-auto max-w-[90%]" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
+                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} className="h-full max-h-8 sm:max-h-12 w-auto" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
               </div>
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
