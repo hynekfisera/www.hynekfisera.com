@@ -49,7 +49,7 @@ const projects: Project[] = [
     type: "UI design",
     logo: Acewill,
     name: "Acewill",
-    description: "I designed a prototype of the Acewill operating system distributed by Aprocle",
+    description: "Prototype of the Acewill operating system distributed by Aprocle",
     href: "http://aprocle.com/",
   },
   {
@@ -65,7 +65,7 @@ const projects: Project[] = [
     type: "Web application",
     logo: Helpdesk,
     name: "HelpDesk",
-    description: "Ticket support project for my high school",
+    description: "Ticket support system for High School and College of Applied Cybernetics",
     href: "https://kyberna.cz/",
   },
   {
@@ -73,14 +73,14 @@ const projects: Project[] = [
     type: "Website",
     logo: Nylium,
     name: "Nylium",
-    description: "I coded a website for the Nylium Survival minecraft server",
+    description: "A website for the Nylium Survival minecraft server",
   },
   {
     image: EryesPortfolio,
     type: "Social media",
     logo: Eryes,
     name: "Eryes",
-    description: "I created livestream overlays and social media posts for the Eryes league",
+    description: "Livestream overlays and social media posts for the Eryes league",
     href: "https://www.twitch.tv/eryesloleague",
   },
   {
@@ -94,7 +94,7 @@ const projects: Project[] = [
     image: NekrPortfolio,
     type: "Website",
     name: "HNK NEKR",
-    description: "Website for a company which provides services and supplies for construction machinery",
+    description: "Company which provides services and supplies for construction machinery",
     href: "https://hnk-nekr.cz/",
   },
   {
@@ -102,7 +102,7 @@ const projects: Project[] = [
     type: "Website",
     logo: Vrcc,
     name: "VRCC",
-    description: "I developed a website for the VR Component Constructor project",
+    description: "A website for the VR Component Constructor project",
   },
   {
     image: ArfiPortfolio,
@@ -136,9 +136,9 @@ const projects: Project[] = [
 const Home: NextPage = () => {
   return (
     <>
-      <main className="max-w-screen-2xl mx-auto px-6">
+      <main className="max-w-screen-xl mx-auto px-8">
         <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl max-w-[90%] font-bold !leading-snug text-gray-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
             Full-stack web <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">developer</span> and YouTube <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">content creator</span> also interested in UI/UX design
             and digital art
           </h1>
@@ -146,17 +146,17 @@ const Home: NextPage = () => {
             See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
           </h2>
         </section>
-        <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3" id="portfolio">
+        <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16" id="portfolio">
           {projects.map((project) => (
-            <div key={project.name} className="flex flex-col items-center gap-3 py-8 px-6 sm:py-12 sm:px-8">
+            <div key={project.name} className="flex flex-col items-center gap-3">
               {project.image && (
-                <div className="w-full max-w-[80%] h-auto">
+                <div className="w-full max-w-[90%] sm:max-w-[80%] h-auto -mb-2">
                   <Image src={project.image} alt={`${project.name} showcase`} />
                 </div>
               )}
               <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
-              <div className={`${project.logo ? "sm:max-w-[50%]" : "h-4 sm:h-8"} w-full relative flex items-center justify-center`}>
-                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} className="h-full max-h-8 sm:max-h-12 w-auto" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
+              <div className={`flex items-center justify-center h-8 sm:h-9 ${!project.logo && "-my-1"}`}>
+                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} className="h-full w-auto" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
               </div>
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
