@@ -14,10 +14,14 @@ import Garnet from "/public/portfolio/garnet.png";
 import GarnetPortfolio from "/public/portfolio/portfolioGarnet.png";
 import Eryes from "/public/portfolio/eryes.png";
 import EryesPortfolio from "/public/portfolio/portfolioEryes.png";
+import Arlb from "/public/portfolio/arlb.svg";
+import ArlbPortfolio from "/public/portfolio/portfolioARLB.png";
 import Nylium from "/public/portfolio/nylium.png";
 import NyliumPortfolio from "/public/portfolio/portfolioNylium.png";
 import Vrcc from "/public/portfolio/vrcc.png";
 import Arfi from "/public/portfolio/arfi.svg";
+import NekrPortfolio from "/public/portfolio/portfolioNekr.png";
+import Helpdesk from "/public/portfolio/helpdesk.svg";
 
 const projects: Project[] = [
   {
@@ -45,12 +49,27 @@ const projects: Project[] = [
     href: "http://aprocle.com/",
   },
   {
+    image: AcewillPortfolio,
+    type: "Web application",
+    logo: Helpdesk,
+    name: "HelpDesk",
+    description: "Ticket system project for my high school",
+    href: "https://kyberna.cz/",
+  },
+  {
     image: GarnetPortfolio,
     type: "Logo design",
     logo: Garnet,
     name: "Garnet",
     description: "I designed a logo for the Garnet operating system",
     href: "https://github.com/GarnetOS",
+  },
+  {
+    image: NyliumPortfolio,
+    type: "Website",
+    logo: Nylium,
+    name: "Nylium",
+    description: "I coded a website for the Nylium Survival minecraft server",
   },
   {
     image: EryesPortfolio,
@@ -61,11 +80,18 @@ const projects: Project[] = [
     href: "https://www.twitch.tv/eryesloleague",
   },
   {
-    image: NyliumPortfolio,
+    image: ArlbPortfolio,
     type: "Website",
-    logo: Nylium,
-    name: "Nylium",
-    description: "I coded a website for the Nylium Survival minecraft server",
+    logo: Arlb,
+    name: "AR Living Book",
+    description: "An augmented reality app that makes pictures move",
+  },
+  {
+    image: NekrPortfolio,
+    type: "Website",
+    name: "HNK NEKR s.r.o.",
+    description: "I created a website for a company which provides comprehensive services and supplies for construction machinery",
+    href: "https://hnk-nekr.cz/",
   },
   {
     type: "Website",
@@ -79,6 +105,24 @@ const projects: Project[] = [
     name: "Arfi",
     description: "The quickest and easiest way to learn web development online",
     href: "https://arfi.cz/",
+  },
+  {
+    type: "Web application",
+    name: "Kittisaurus",
+    description: "Kittisaurus personality test - which cat are you?",
+    href: "https://kittisaurus.hynekfisera.com/",
+  },
+  {
+    type: "Web application",
+    name: "Utilol",
+    description: "Death counter utility for League of Legends built using Riot Games API",
+    href: "https://github.com/hynekfisera/utilol",
+  },
+  {
+    type: "Web application",
+    name: "EKO odpisy",
+    description: "Tax depreciation calculator (according to laws in Czechia)",
+    href: "https://eko-odpisy.hynekfisera.com/",
   },
 ];
 
@@ -103,8 +147,8 @@ const Home: NextPage = () => {
                 </div>
               )}
               <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
-              <div className="h-8 sm:h-12 sm:max-w-[50%] w-full relative">
-                <Image src={project.logo} alt={`${project.name} logo`} layout="fill" objectFit="contain" />
+              <div className={`${project.logo ? "h-8 sm:h-12 sm:max-w-[50%]" : "h-4 sm:h-8"} w-full relative flex items-center justify-center`}>
+                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} layout="fill" objectFit="contain" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
               </div>
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
