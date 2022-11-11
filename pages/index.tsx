@@ -139,8 +139,8 @@ const Home: NextPage = () => {
       <main className="max-w-screen-xl mx-auto px-8">
         <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
-            Full-stack web <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">developer</span> and YouTube <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">content creator</span> also interested in UI/UX design
-            and digital art
+            Full-stack web <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">developer</span> and YouTube <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">content creator</span> also interested in UI/UX
+            design and digital art
           </h1>
           <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
             See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
