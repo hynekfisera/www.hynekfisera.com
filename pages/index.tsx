@@ -45,12 +45,12 @@ const projects: Project[] = [
     href: "https://swiftpass.hynekfisera.com/",
   },
   {
-    image: AcewillPortfolio,
-    type: "UI design",
-    logo: Acewill,
-    name: "Acewill",
-    description: "Prototype of the Acewill operating system distributed by Aprocle",
-    href: "http://aprocle.com/",
+    image: ArfiPortfolio,
+    type: "YouTube channel",
+    logo: Arfi,
+    name: "Arfi",
+    description: "The quickest and easiest way to learn web development online",
+    href: "https://arfi.cz/",
   },
   {
     image: GarnetPortfolio,
@@ -60,6 +60,7 @@ const projects: Project[] = [
     description: "I designed a logo for the Garnet operating system",
     href: "https://github.com/GarnetOS",
   },
+  /* unfinished project
   {
     image: HelpdeskPortfolio,
     type: "Web application",
@@ -68,12 +69,20 @@ const projects: Project[] = [
     description: "Ticket support system for High School and College of Applied Cybernetics",
     href: "https://kyberna.cz/",
   },
+  */
   {
     image: NyliumPortfolio,
     type: "Website",
     logo: Nylium,
     name: "Nylium",
     description: "A website for the Nylium Survival minecraft server",
+  },
+  {
+    image: NekrPortfolio,
+    type: "Website",
+    name: "HNK NEKR",
+    description: "Company which provides services and supplies for construction machinery",
+    href: "https://hnk-nekr.cz/",
   },
   {
     image: EryesPortfolio,
@@ -84,20 +93,6 @@ const projects: Project[] = [
     href: "https://www.twitch.tv/eryesloleague",
   },
   {
-    image: ArlbPortfolio,
-    type: "Website",
-    logo: Arlb,
-    name: "AR Living Book",
-    description: "An augmented reality app that makes pictures move",
-  },
-  {
-    image: NekrPortfolio,
-    type: "Website",
-    name: "HNK NEKR",
-    description: "Company which provides services and supplies for construction machinery",
-    href: "https://hnk-nekr.cz/",
-  },
-  {
     image: VrccPortfolio,
     type: "Website",
     logo: Vrcc,
@@ -105,12 +100,19 @@ const projects: Project[] = [
     description: "A website for the VR Component Constructor project",
   },
   {
-    image: ArfiPortfolio,
-    type: "YouTube channel",
-    logo: Arfi,
-    name: "Arfi",
-    description: "The quickest and easiest way to learn web development online",
-    href: "https://arfi.cz/",
+    image: ArlbPortfolio,
+    type: "Website",
+    logo: Arlb,
+    name: "AR Living Book",
+    description: "An augmented reality app that makes pictures move",
+  },
+  {
+    image: AcewillPortfolio,
+    type: "UI design",
+    logo: Acewill,
+    name: "Acewill",
+    description: "Prototype of the Acewill operating system distributed by Aprocle",
+    href: "http://aprocle.com/",
   },
   {
     image: KittisarusPortfolio,
@@ -119,6 +121,7 @@ const projects: Project[] = [
     description: "Kittisaurus personality test - which cat are you?",
     href: "https://kittisaurus.hynekfisera.com/",
   },
+  /* unfinished showcases
   {
     type: "Web application",
     name: "Utilol",
@@ -131,6 +134,7 @@ const projects: Project[] = [
     description: "Tax depreciation calculator (according to laws in Czechia)",
     href: "https://eko-odpisy.hynekfisera.com/",
   },
+  */
 ];
 
 const Home: NextPage = () => {
@@ -160,9 +164,9 @@ const Home: NextPage = () => {
               </div>
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
-                <Link href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400">
+                <a href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400" rel="noopener noreferrer" target="_blank">
                   Learn more <FontAwesomeIcon icon={faChevronRight} />
-                </Link>
+                </a>
               )}
             </div>
           ))}
