@@ -7,10 +7,12 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Footer from "../components/Footer";
 config.autoAddCss = false;
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <GoogleAnalytics trackPageViews />
       <DefaultSeo {...SEO} />
       <Header />
       <Component {...pageProps} />
