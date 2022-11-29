@@ -8,16 +8,22 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import Footer from "../components/Footer";
 config.autoAddCss = false;
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import { Inter } from "@next/font/google";
+
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter",
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className={`${inter.variable} font-sans`}>
       <GoogleAnalytics trackPageViews />
       <DefaultSeo {...SEO} />
       <Header />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   );
 }
 
