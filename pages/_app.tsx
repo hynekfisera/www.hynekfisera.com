@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 config.autoAddCss = false;
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Inter } from "@next/font/google";
+import { appWithTranslation } from "next-i18next";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -27,4 +28,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

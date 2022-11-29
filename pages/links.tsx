@@ -4,6 +4,16 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub, faInstagram, faLinkedin, faSpotify, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["header", "footer", "links"])),
+    },
+  };
+}
 
 const links = [
   {
@@ -62,23 +72,37 @@ const links = [
   },
 ];
 
-export default function Links() {
+export default function Links(props: any) {
+  const { t }: any = useTranslation("links");
+
   return (
     <>
       <NextSeo
-        title="Links"
-        description="Here are links to my GitHub, LinkedIn and other social media profiles"
-        canonical="https://www.hynekfisera.com/links"
+        title={t("title")}
+        description={t("description")}
+        // @ts-ignore
+        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links"}
         openGraph={{
           type: "website",
-          url: "https://www.hynekfisera.com/links",
-          title: "Links - Hynek Fišera | Web Development & UX Design",
-          description: "Here are links to my GitHub, LinkedIn and other social media profiles",
+          // @ts-ignore
+          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links",
+          title: t("title"),
+          description: t("description"),
           site_name: "Hynek Fišera",
         }}
+        languageAlternates={[
+          {
+            hrefLang: "en",
+            href: "https://www.hynekfisera.com/links",
+          },
+          {
+            hrefLang: "cs",
+            href: "https://www.hynekfisera.cz/links",
+          },
+        ]}
       />
       <main>
-        <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">Links</h1>
+        <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0">
           {links.map((link, i) => (
             <Link

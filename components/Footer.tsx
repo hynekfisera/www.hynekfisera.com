@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation("footer");
+
   return (
     <footer className="max-w-screen-xl mx-auto p-8 pt-12 flex flex-col gap-2">
       <div className="text-center text-gray-600 font-medium">
@@ -11,7 +14,7 @@ export default function Footer() {
         </Link>
       </div>
       <div className="text-center text-gray-500">
-        Built {"&"} deployed using{" "}
+        {t("built_deployed")}{" "}
         <Link href="https://nextjs.org/" className="text-indigo-400 hover:underline">
           Next.js
         </Link>
@@ -19,7 +22,7 @@ export default function Footer() {
         <Link href="https://tailwindcss.com/" className="text-indigo-400 hover:underline">
           TailwindCSS
         </Link>{" "}
-        and{" "}
+        {t("and")}{" "}
         <Link href="https://vercel.com/" className="text-indigo-400 hover:underline">
           Vercel
         </Link>

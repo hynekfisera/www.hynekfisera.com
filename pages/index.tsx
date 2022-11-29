@@ -27,126 +27,162 @@ import HelpdeskPortfolio from "/public/portfolio/portfolioHelpdesk.png";
 import KittisarusPortfolio from "/public/portfolio/portfolioKittisaurus.png";
 import ArticlesPortfolio from "/public/portfolio/portfolioArticles.png";
 import EkoPortfolio from "/public/portfolio/portfolioEko.png";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation, Trans } from "next-i18next";
+import { NextSeo } from "next-seo";
 
-const projects: Project[] = [
-  {
-    image: FlairleapPortfolio,
-    type: "Web application",
-    logo: Flairleap,
-    name: "Flairleap",
-    description: "Social network which helps creators with presenting projects, building brands and reaching target audiences",
-    href: "https://flairleap.com/",
-  },
-  {
-    image: SwiftpassPortfolio,
-    type: "Web application",
-    logo: Swiftpass,
-    name: "Swiftpass",
-    description: "Smart password generator which can generate not only strong, but also quick-to-enter passwords",
-    href: "https://swiftpass.hynekfisera.com/",
-  },
-  {
-    image: ArfiPortfolio,
-    type: "YouTube channel",
-    logo: Arfi,
-    name: "Arfi",
-    description: "The quickest and easiest way to learn web development online",
-    href: "https://arfi.cz/",
-  },
-  {
-    image: GarnetPortfolio,
-    type: "Logo design",
-    logo: Garnet,
-    name: "Garnet",
-    description: "I designed a logo for the Garnet operating system",
-    href: "https://github.com/GarnetOS",
-  },
-  {
-    image: HelpdeskPortfolio,
-    type: "Web application",
-    logo: Helpdesk,
-    name: "HelpDesk",
-    description: "Ticket support system for High School and College of Applied Cybernetics",
-    href: "https://kyberna.cz/",
-  },
-  {
-    image: NyliumPortfolio,
-    type: "Website",
-    logo: Nylium,
-    name: "Nylium",
-    description: "A website for the Nylium Survival minecraft server",
-  },
-  {
-    image: EkoPortfolio,
-    type: "Web application",
-    name: "EKO odpisy",
-    description: "Tax depreciation calculator (according to laws in Czechia)",
-    href: "https://eko-odpisy.hynekfisera.com/",
-  },
-  {
-    image: NekrPortfolio,
-    type: "Website",
-    name: "HNK NEKR",
-    description: "Company which provides services and supplies for construction machinery",
-    href: "https://hnk-nekr.cz/",
-  },
-  {
-    image: EryesPortfolio,
-    type: "Social media",
-    logo: Eryes,
-    name: "Eryes",
-    description: "Livestream overlays and social media posts for the Eryes league",
-    href: "https://www.twitch.tv/eryesloleague",
-  },
-  {
-    image: VrccPortfolio,
-    type: "Website",
-    logo: Vrcc,
-    name: "VRCC",
-    description: "A website for the VR Component Constructor project",
-  },
-  {
-    image: ArlbPortfolio,
-    type: "Website",
-    logo: Arlb,
-    name: "AR Living Book",
-    description: "An augmented reality app that makes pictures move",
-  },
-  {
-    image: AcewillPortfolio,
-    type: "UI design",
-    logo: Acewill,
-    name: "Acewill",
-    description: "Prototype of the Acewill operating system distributed by Aprocle",
-    href: "http://aprocle.com/",
-  },
-  {
-    image: KittisarusPortfolio,
-    type: "Web application",
-    name: "Kittisaurus",
-    description: "Kittisaurus personality test - which cat are you?",
-    href: "https://kittisaurus.hynekfisera.com/",
-  },
-  {
-    image: ArticlesPortfolio,
-    type: "Web application",
-    name: "Article remover",
-    description: "Simple app for language teachers. Create fill-in-the-blanks exercises instantly.",
-    href: "https://odstraneni-clenu.hynekfisera.com/",
-  },
-];
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["header", "footer", "index"])),
+    },
+  };
+}
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
+  const { t }: any = useTranslation("index");
+
+  const projects: Project[] = [
+    {
+      image: FlairleapPortfolio,
+      type: t("category_webapp"),
+      logo: Flairleap,
+      name: "Flairleap",
+      description: t("portfolio_flairleap"),
+      href: "https://flairleap.com/",
+    },
+    {
+      image: SwiftpassPortfolio,
+      type: t("category_webapp"),
+      logo: Swiftpass,
+      name: "Swiftpass",
+      description: t("portfolio_swiftpass"),
+      href: "https://swiftpass.hynekfisera.com/",
+    },
+    {
+      image: ArfiPortfolio,
+      type: t("category_youtube"),
+      logo: Arfi,
+      name: "Arfi",
+      description: t("portfolio_arfi"),
+      href: "https://arfi.cz/",
+    },
+    {
+      image: GarnetPortfolio,
+      type: t("category_logo"),
+      logo: Garnet,
+      name: "Garnet",
+      description: t("portfolio_garnet"),
+      href: "https://github.com/GarnetOS",
+    },
+    {
+      image: HelpdeskPortfolio,
+      type: t("category_webapp"),
+      logo: Helpdesk,
+      name: "HelpDesk",
+      description: t("portfolio_helpdesk"),
+      href: "https://kyberna.cz/",
+    },
+    {
+      image: NyliumPortfolio,
+      type: t("category_website"),
+      logo: Nylium,
+      name: "Nylium",
+      description: t("portfolio_nylium"),
+    },
+    {
+      image: EkoPortfolio,
+      type: t("category_webapp"),
+      name: "EKO odpisy",
+      description: t("portfolio_eko"),
+      href: "https://eko-odpisy.hynekfisera.com/",
+    },
+    {
+      image: NekrPortfolio,
+      type: t("category_website"),
+      name: "HNK NEKR",
+      description: t("portfolio_nekr"),
+      href: "https://hnk-nekr.cz/",
+    },
+    {
+      image: EryesPortfolio,
+      type: t("category_social"),
+      logo: Eryes,
+      name: "Eryes",
+      description: t("portfolio_eryes"),
+      href: "https://www.twitch.tv/eryesloleague",
+    },
+    {
+      image: VrccPortfolio,
+      type: t("category_website"),
+      logo: Vrcc,
+      name: "VRCC",
+      description: t("portfolio_vrcc"),
+    },
+    {
+      image: ArlbPortfolio,
+      type: t("category_website"),
+      logo: Arlb,
+      name: "AR Living Book",
+      description: t("portfolio_arlb"),
+    },
+    {
+      image: AcewillPortfolio,
+      type: t("category_ui"),
+      logo: Acewill,
+      name: "Acewill",
+      description: t("portfolio_acewill"),
+      href: "http://aprocle.com/",
+    },
+    {
+      image: KittisarusPortfolio,
+      type: t("category_webapp"),
+      name: "Kittisaurus",
+      description: t("portfolio_kittisarus"),
+      href: "https://kittisaurus.hynekfisera.com/",
+    },
+    {
+      image: ArticlesPortfolio,
+      type: t("category_webapp"),
+      name: "Article remover",
+      description: t("portfolio_articles"),
+      href: "https://odstraneni-clenu.hynekfisera.com/",
+    },
+  ];
+
   return (
     <>
+      <NextSeo
+        title={t("title")}
+        description={t("description")}
+        // @ts-ignore
+        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/" : "https://www.hynekfisera.cz/"}
+        openGraph={{
+          type: "website",
+          // @ts-ignore
+          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/" : "https://www.hynekfisera.cz/",
+          title: t("title"),
+          description: t("description"),
+          site_name: "Hynek Fišera",
+        }}
+        languageAlternates={[
+          {
+            hrefLang: "en",
+            href: "https://www.hynekfisera.com/",
+          },
+          {
+            hrefLang: "cs",
+            href: "https://www.hynekfisera.cz/",
+          },
+        ]}
+      />
       <main className="max-w-screen-xl mx-auto px-8">
         <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
-            Full-stack web <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">developer</span> and YouTube <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">content creator</span> also interested in UI/UX
-            design and digital art
+            <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
           </h1>
           <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-            See what I{"'"}ve been working on <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
+            {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
           </h2>
         </section>
         <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16" id="portfolio">
@@ -164,7 +200,7 @@ const Home: NextPage = () => {
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
                 <a href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400" rel="noopener noreferrer" target="_blank">
-                  Learn more <FontAwesomeIcon icon={faChevronRight} />
+                  {t("learn_more")} <FontAwesomeIcon icon={faChevronRight} />
                 </a>
               )}
             </div>
