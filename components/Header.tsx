@@ -18,10 +18,6 @@ export default function Header() {
       text: t("social"),
       href: "/links",
     },
-    {
-      text: t("contact"),
-      href: "mailto:hynek@flairleap.com",
-    },
   ];
 
   const [visible, setVisible] = useState(false);
@@ -38,6 +34,9 @@ export default function Header() {
             {link.text}
           </Link>
         ))}
+        <a href="mailto:hynek@flairleap.com" onClick={() => setVisible(false)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
+          {t("contact")}
+        </a>
         <Link href={asPath} onClick={() => setVisible(false)} locale={locale === "en" ? "cs" : "en"} className="text-xs font-semibold group text-slate-600 select-none uppercase tracking-wider">
           <span className="text-slate-400 group-hover:text-slate-600">{locale === "en" ? "cs" : "en"} | </span>
           {locale === "en" ? "en" : "cs"}
