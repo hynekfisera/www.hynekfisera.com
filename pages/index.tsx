@@ -2,7 +2,6 @@ import { faArrowDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Project } from "../types/Project";
 import Flairleap from "/public/portfolio/flairleap.svg";
 import FlairleapPortfolio from "/public/portfolio/portfolioFlairleap.png";
@@ -26,6 +25,8 @@ import NekrPortfolio from "/public/portfolio/portfolioNekr.png";
 import Helpdesk from "/public/portfolio/helpdesk.svg";
 import HelpdeskPortfolio from "/public/portfolio/portfolioHelpdesk.png";
 import KittisarusPortfolio from "/public/portfolio/portfolioKittisaurus.png";
+import ArticlesPortfolio from "/public/portfolio/portfolioArticles.png";
+import EkoPortfolio from "/public/portfolio/portfolioEko.png";
 
 const projects: Project[] = [
   {
@@ -60,7 +61,6 @@ const projects: Project[] = [
     description: "I designed a logo for the Garnet operating system",
     href: "https://github.com/GarnetOS",
   },
-  /* unfinished project
   {
     image: HelpdeskPortfolio,
     type: "Web application",
@@ -69,13 +69,19 @@ const projects: Project[] = [
     description: "Ticket support system for High School and College of Applied Cybernetics",
     href: "https://kyberna.cz/",
   },
-  */
   {
     image: NyliumPortfolio,
     type: "Website",
     logo: Nylium,
     name: "Nylium",
     description: "A website for the Nylium Survival minecraft server",
+  },
+  {
+    image: EkoPortfolio,
+    type: "Web application",
+    name: "EKO odpisy",
+    description: "Tax depreciation calculator (according to laws in Czechia)",
+    href: "https://eko-odpisy.hynekfisera.com/",
   },
   {
     image: NekrPortfolio,
@@ -121,20 +127,13 @@ const projects: Project[] = [
     description: "Kittisaurus personality test - which cat are you?",
     href: "https://kittisaurus.hynekfisera.com/",
   },
-  /* unfinished showcases
   {
+    image: ArticlesPortfolio,
     type: "Web application",
-    name: "Utilol",
-    description: "Death counter utility for League of Legends built using Riot Games API",
-    href: "https://github.com/hynekfisera/utilol",
+    name: "Article remover",
+    description: "Simple app for language teachers. Create fill-in-the-blanks exercises instantly.",
+    href: "https://odstraneni-clenu.hynekfisera.com/",
   },
-  {
-    type: "Web application",
-    name: "EKO odpisy",
-    description: "Tax depreciation calculator (according to laws in Czechia)",
-    href: "https://eko-odpisy.hynekfisera.com/",
-  },
-  */
 ];
 
 const Home: NextPage = () => {
