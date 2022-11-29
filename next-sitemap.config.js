@@ -5,5 +5,15 @@ module.exports = {
   robotsTxtOptions: {
     policies: [{ userAgent: "*", allow: "/" }],
   },
-  exclude: ["/404", "/500"],
+  alternateRefs: [
+    {
+      href: "https://www.hynekfisera.com",
+      hreflang: "en",
+    },
+    {
+      href: "https://www.hynekfisera.cz",
+      hreflang: "cs",
+    },
+  ],
+  exclude: ["/404", "/500", "/cs*"],
 };
