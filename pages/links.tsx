@@ -1,6 +1,5 @@
 import React from "react";
 import { NextSeo } from "next-seo";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub, faInstagram, faLinkedin, faSpotify, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
@@ -105,7 +104,7 @@ export default function Links(props: any) {
         <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0">
           {links.map((link, i) => (
-            <Link
+            <a
               href={link.href}
               key={i}
               className={`mb-4 flex justify-center items-center gap-1 w-full text-lg font-medium text-center border rounded-md py-2 transition duration-200 hover:text-white ${
@@ -113,7 +112,7 @@ export default function Links(props: any) {
               }`}
             >
               {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title}
-            </Link>
+            </a>
           ))}
         </div>
       </main>
