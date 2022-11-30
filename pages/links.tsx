@@ -100,7 +100,7 @@ export default function Links(props: any) {
           },
         ]}
       />
-      <main>
+      <main className="py-8">
         <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0">
           {links.map((link, i) => (

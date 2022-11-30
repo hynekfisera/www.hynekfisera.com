@@ -37,7 +37,7 @@ export default function Header() {
         <a href="mailto:hynek@flairleap.com" onClick={() => setVisible(false)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
           {t("contact")}
         </a>
-        <Link href={asPath} onClick={() => setVisible(false)} locale={locale === "en" ? "cs" : "en"} className="text-xs font-semibold group text-slate-600 select-none uppercase tracking-wider">
+        <Link href={asPath} onClick={() => setVisible(false)} locale={locale === "en" ? "cs" : "en"} className="text-xs font-semibold group text-slate-600 select-none uppercase tracking-wider py-1.5">
           <span className="text-slate-400 group-hover:text-slate-600">{locale === "en" ? "cs" : "en"} | </span>
           {locale === "en" ? "en" : "cs"}
         </Link>
