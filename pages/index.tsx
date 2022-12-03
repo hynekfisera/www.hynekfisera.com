@@ -32,6 +32,7 @@ import { useTranslation, Trans } from "next-i18next";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { getCurrentBreakpoint } from "../utils/breakpoints";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -183,17 +184,21 @@ const Home: NextPage = (props) => {
           <motion.div
             initial="initial"
             animate="animate"
-            variants={{
-              initial: { opacity: 0, x: -20, y: 0 },
-              animate: {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                transition: {
-                  delay: 0.05,
-                },
-              },
-            }}
+            variants={
+              typeof window !== "undefined" && ["lg", "xl"].includes(getCurrentBreakpoint())
+                ? {
+                    initial: { opacity: 0, x: -20, y: 0 },
+                    animate: {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      transition: {
+                        delay: 0.05,
+                      },
+                    },
+                  }
+                : {}
+            }
           >
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
               <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
@@ -230,7 +235,7 @@ const Home: NextPage = (props) => {
 };
 
 const WaitForAnimation = ({ children, i, className }: { children: ReactNode; i: number; className: string }) => {
-  if (i < 3) {
+  if (i < 3 && typeof window !== "undefined" && ["lg", "xl"].includes(getCurrentBreakpoint())) {
     return (
       <motion.div
         className={className}
@@ -251,7 +256,7 @@ const WaitForAnimation = ({ children, i, className }: { children: ReactNode; i: 
         {children}
       </motion.div>
     );
-  } else if (i < 6) {
+  } else if (i < 6 && typeof window !== "undefined" && ["lg", "xl"].includes(getCurrentBreakpoint())) {
     return (
       <motion.div
         className={className}
