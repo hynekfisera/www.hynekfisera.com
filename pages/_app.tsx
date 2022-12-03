@@ -10,20 +10,50 @@ config.autoAddCss = false;
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Inter } from "@next/font/google";
 import { appWithTranslation } from "next-i18next";
+import { motion } from "framer-motion";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <div className={`${inter.variable} font-sans`}>
       <GoogleAnalytics trackPageViews />
       <DefaultSeo {...SEO} />
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <motion.div
+        transition={{ type: "linear" }}
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}
+      >
+        <Header />
+        <motion.div
+          key={router.route}
+          transition={{ type: "linear" }}
+          initial="initial"
+          animate="animate"
+          variants={{
+            initial: { opacity: 0, x: -10, y: 0 },
+            animate: {
+              opacity: 1,
+              x: 0,
+              y: 0,
+            },
+          }}
+        >
+          <Component {...pageProps} />
+        </motion.div>
+        <Footer />
+      </motion.div>
     </div>
   );
 }

@@ -30,6 +30,8 @@ import EkoPortfolio from "/public/portfolio/portfolioEko.png";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { NextSeo } from "next-seo";
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -178,16 +180,32 @@ const Home: NextPage = (props) => {
       />
       <main className="max-w-screen-xl mx-auto px-8">
         <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
-            <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
-          </h1>
-          <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-            {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
-          </h2>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={{
+              initial: { opacity: 0, x: -20, y: 0 },
+              animate: {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                transition: {
+                  delay: 0.05,
+                },
+              },
+            }}
+          >
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
+              <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
+            </h1>
+            <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
+            </h2>
+          </motion.div>
         </section>
         <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16" id="portfolio">
-          {projects.map((project) => (
-            <div key={project.name} className="flex flex-col items-center gap-3">
+          {projects.map((project, i) => (
+            <WaitForAnimation key={project.name} i={i} className="flex flex-col items-center gap-3">
               {project.image && (
                 <div className="w-full max-w-[90%] sm:max-w-[80%] h-auto -mb-2">
                   <Image src={project.image} alt={`${project.name} showcase`} />
@@ -203,12 +221,58 @@ const Home: NextPage = (props) => {
                   {t("learn_more")} <FontAwesomeIcon icon={faChevronRight} />
                 </a>
               )}
-            </div>
+            </WaitForAnimation>
           ))}
         </section>
       </main>
     </>
   );
+};
+
+const WaitForAnimation = ({ children, i, className }: { children: ReactNode; i: number; className: string }) => {
+  if (i < 3) {
+    return (
+      <motion.div
+        className={className}
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: { opacity: 0, x: 0, y: -20 },
+          animate: {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            transition: {
+              delay: 0.15 + 0.07 * i,
+            },
+          },
+        }}
+      >
+        {children}
+      </motion.div>
+    );
+  } else if (i < 6) {
+    return (
+      <motion.div
+        className={className}
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: { opacity: 0 },
+          animate: {
+            opacity: 1,
+            transition: {
+              delay: 0.25,
+            },
+          },
+        }}
+      >
+        {children}
+      </motion.div>
+    );
+  } else {
+    return <div className={className}>{children}</div>;
+  }
 };
 
 export default Home;
