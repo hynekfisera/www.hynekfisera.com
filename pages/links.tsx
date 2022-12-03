@@ -17,12 +17,6 @@ export async function getStaticProps({ locale }: any) {
 
 const links = [
   {
-    title: "Portfolio",
-    icon: faGlobe,
-    href: "/",
-    type: "primary",
-  },
-  {
     title: "GitHub",
     icon: faGithub,
     href: "https://github.com/hynekfisera",
@@ -104,8 +98,11 @@ export default function Links(props: any) {
       <main className="py-8">
         <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0">
+          <Link href="/" className="mb-4 flex justify-center items-center gap-1 w-full text-lg font-medium text-center border rounded-md py-2 transition duration-200 hover:text-white border-indigo-600 text-indigo-600 hover:bg-indigo-500">
+            <FontAwesomeIcon icon={faGlobe} className="h-4" /> Portfolio
+          </Link>
           {links.map((link, i) => (
-            <Link
+            <a
               href={link.href}
               key={i}
               className={`mb-4 flex justify-center items-center gap-1 w-full text-lg font-medium text-center border rounded-md py-2 transition duration-200 hover:text-white ${
@@ -113,7 +110,7 @@ export default function Links(props: any) {
               }`}
             >
               {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title}
-            </Link>
+            </a>
           ))}
         </div>
       </main>
