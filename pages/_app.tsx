@@ -11,7 +11,6 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Inter } from "@next/font/google";
 import { appWithTranslation } from "next-i18next";
 import { motion } from "framer-motion";
-import { getCurrentBreakpoint } from "../utils/breakpoints";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -43,7 +42,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           initial="initial"
           animate="animate"
           variants={{
-            initial: { opacity: 0, x: typeof window !== "undefined" && ["lg", "xl"].includes(getCurrentBreakpoint()) ? -10 : 0, y: 0 },
+            initial: { opacity: 0, x: -10, y: 0 },
             animate: {
               opacity: 1,
               x: 0,

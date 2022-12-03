@@ -24,22 +24,22 @@ export default function Header() {
 
   return (
     <header className="max-w-screen-xl mx-auto p-8 flex justify-between items-center">
-      <Link href="/" onClick={() => setTimeout(() => setVisible(false), 200)} className="select-none text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">
+      <Link href="/" onClick={() => setVisible(false)} className="select-none text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">
         Hynek Fišera
       </Link>
       <div className="flex gap-4">
         <div className="flex sm:flex-row-reverse gap-2 sm:gap-6">
-          <Link href={asPath} onClick={() => setTimeout(() => setVisible(false), 200)} locale={locale === "en" ? "cs" : "en"} className="text-xs font-semibold group text-slate-600 select-none uppercase tracking-wider py-1.5">
+          <Link href={asPath} onClick={() => setVisible(false)} locale={locale === "en" ? "cs" : "en"} className="text-xs font-semibold group text-slate-600 select-none uppercase tracking-wider py-1.5">
             <span className="text-slate-400 group-hover:text-slate-600">{locale === "en" ? "cs" : "en"} | </span>
             {locale === "en" ? "en" : "cs"}
           </Link>
           <div className={`${visible ? "flex" : "hidden"} sm:items-center absolute sm:static bg-gray-50 sm:bg-transparent top-0 left-0 right-0 mt-20 sm:mt-0 pl-8 pb-8 sm:p-0 border-b sm:border-none sm:!flex flex-col sm:flex-row gap-2 sm:gap-6`}>
             {links.map((link) => (
-              <Link href={link.href} key={link.href} onClick={() => setTimeout(() => setVisible(false), 200)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
+              <Link href={link.href} key={link.href} onClick={() => setVisible(false)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
                 {link.text}
               </Link>
             ))}
-            <a href="mailto:hynek@flairleap.com" onClick={() => setTimeout(() => setVisible(false), 200)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
+            <a href="mailto:hynek@flairleap.com" onClick={() => setVisible(false)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
               {t("contact")}
             </a>
           </div>
