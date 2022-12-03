@@ -31,7 +31,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -43,6 +43,11 @@ export async function getStaticProps({ locale }: any) {
 
 const Home: NextPage = (props) => {
   const { t }: any = useTranslation("index");
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -152,6 +157,52 @@ const Home: NextPage = (props) => {
     },
   ];
 
+  const WaitForAnimation = ({ children, i, className }: { children: ReactNode; i: number; className: string }) => {
+    if (i < 3) {
+      return (
+        <motion.div
+          className={className}
+          initial="initial"
+          animate="animate"
+          variants={{
+            initial: { opacity: 0, x: 0, y: isMobile ? 0 : -20 },
+            animate: {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              transition: {
+                delay: 0.15 + 0.07 * i,
+              },
+            },
+          }}
+        >
+          {children}
+        </motion.div>
+      );
+    } else if (i < 6) {
+      return (
+        <motion.div
+          className={className}
+          initial="initial"
+          animate="animate"
+          variants={{
+            initial: { opacity: 0 },
+            animate: {
+              opacity: 1,
+              transition: {
+                delay: 0.25,
+              },
+            },
+          }}
+        >
+          {children}
+        </motion.div>
+      );
+    } else {
+      return <div className={className}>{children}</div>;
+    }
+  };
+
   return (
     <>
       <NextSeo
@@ -183,17 +234,21 @@ const Home: NextPage = (props) => {
           <motion.div
             initial="initial"
             animate="animate"
-            variants={{
-              initial: { opacity: 0, x: -20, y: 0 },
-              animate: {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                transition: {
-                  delay: 0.05,
-                },
-              },
-            }}
+            variants={
+              isMobile
+                ? {}
+                : {
+                    initial: { opacity: 0, x: -20, y: 0 },
+                    animate: {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      transition: {
+                        delay: 0.05,
+                      },
+                    },
+                  }
+            }
           >
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
               <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
@@ -227,52 +282,6 @@ const Home: NextPage = (props) => {
       </main>
     </>
   );
-};
-
-const WaitForAnimation = ({ children, i, className }: { children: ReactNode; i: number; className: string }) => {
-  if (i < 3) {
-    return (
-      <motion.div
-        className={className}
-        initial="initial"
-        animate="animate"
-        variants={{
-          initial: { opacity: 0, x: 0, y: -20 },
-          animate: {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            transition: {
-              delay: 0.15 + 0.07 * i,
-            },
-          },
-        }}
-      >
-        {children}
-      </motion.div>
-    );
-  } else if (i < 6) {
-    return (
-      <motion.div
-        className={className}
-        initial="initial"
-        animate="animate"
-        variants={{
-          initial: { opacity: 0 },
-          animate: {
-            opacity: 1,
-            transition: {
-              delay: 0.25,
-            },
-          },
-        }}
-      >
-        {children}
-      </motion.div>
-    );
-  } else {
-    return <div className={className}>{children}</div>;
-  }
 };
 
 export default Home;

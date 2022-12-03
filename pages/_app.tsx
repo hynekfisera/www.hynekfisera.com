@@ -11,6 +11,7 @@ import { GoogleAnalytics } from "nextjs-google-analytics";
 import { Inter } from "@next/font/google";
 import { appWithTranslation } from "next-i18next";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -18,6 +19,12 @@ const inter = Inter({
 });
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <div className={`${inter.variable} font-sans`}>
       <GoogleAnalytics trackPageViews />
@@ -42,7 +49,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           initial="initial"
           animate="animate"
           variants={{
-            initial: { opacity: 0, x: -10, y: 0 },
+            initial: { opacity: 0, x: isMobile ? 0 : -10, y: 0 },
             animate: {
               opacity: 1,
               x: 0,

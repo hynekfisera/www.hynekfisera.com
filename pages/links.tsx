@@ -5,6 +5,7 @@ import { faDiscord, faGithub, faInstagram, faLinkedin, faSpotify, faTwitch, faTw
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -104,7 +105,7 @@ export default function Links(props: any) {
         <h1 className="text-center text-3xl font-semibold mb-8 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0">
           {links.map((link, i) => (
-            <a
+            <Link
               href={link.href}
               key={i}
               className={`mb-4 flex justify-center items-center gap-1 w-full text-lg font-medium text-center border rounded-md py-2 transition duration-200 hover:text-white ${
@@ -112,7 +113,7 @@ export default function Links(props: any) {
               }`}
             >
               {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title}
-            </a>
+            </Link>
           ))}
         </div>
       </main>
