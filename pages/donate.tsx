@@ -67,8 +67,8 @@ export default function Donate(props: any) {
                 </a>
               </li>
               <li>
-                <a className="text-indigo-500 hover:underline" href="https://streamelements.com/arfilive/tip" target="_blank" rel="noopener noreferrer">
-                  StreamElements (PayPal)
+                <a className="text-indigo-500 hover:underline" href="https://paypal.me/fiserah" target="_blank" rel="noopener noreferrer">
+                  PayPal
                 </a>
               </li>
               <li>
