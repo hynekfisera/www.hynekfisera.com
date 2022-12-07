@@ -82,6 +82,7 @@ const Home: NextPage = (props) => {
       description: t("portfolio_garnet"),
       href: "https://github.com/GarnetOS",
     },
+    /*
     {
       image: HelpdeskPortfolio,
       type: t("category_webapp"),
@@ -90,6 +91,7 @@ const Home: NextPage = (props) => {
       description: t("portfolio_helpdesk"),
       href: "https://kyberna.cz/",
     },
+    */
     {
       image: NyliumPortfolio,
       type: t("category_website"),
