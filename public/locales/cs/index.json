@@ -8,8 +8,8 @@
   "category_youtube": "YouTube kanál",
   "category_logo": "Design loga",
   "category_website": "Webová stránka",
-  "category_social": "Internetový obsah",
   "category_ui": "UI design",
+  "category_design": "Grafický návrh",
   "portfolio_flairleap": "Sociální síť pro všechny tvůrce, kteří potřebují zviditelnit svůj projekt",
   "portfolio_swiftpass": "Chytrý generátor hesel co tvoří hesla nejen silná, ale také jednoduchá na psaní",
   "portfolio_arfi": "Nejrychlejší a nejjednodušší návody na weby, hry a servery",
@@ -23,5 +23,6 @@
   "portfolio_arlb": "Vytvořil jsem webovou stránku prezentující aplikaci pro rozšířenou realitu",
   "portfolio_acewill": "Vytvořil jsem prototyp operačního systému Acewill od Aprocle",
   "portfolio_kittisarus": "Test osobnosti vytvořený podle oblíbeného YouTube kanálu Kittisaurus",
-  "portfolio_articles": "Aplikace pro učitele jazyků, která umožňuje jednoduše vytvářet cvičení na procičování členů"
+  "portfolio_articles": "Aplikace pro učitele jazyků, která umožňuje jednoduše vytvářet cvičení na procičování členů",
+  "portfolio_uhrochu": "Vytvořil jsem plakát pro ubytování Roubenka U Hrochů"
 }

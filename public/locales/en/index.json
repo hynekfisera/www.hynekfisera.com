@@ -8,8 +8,8 @@
   "category_youtube": "YouTube channel",
   "category_logo": "Logo design",
   "category_website": "Website",
-  "category_social": "Social media",
   "category_ui": "UI design",
+  "category_design": "Graphic design",
   "portfolio_flairleap": "Social network which helps creators with presenting projects, building brands and reaching target audiences",
   "portfolio_swiftpass": "Smart password generator which can generate not only strong, but also quick-to-enter passwords",
   "portfolio_arfi": "The quickest and easiest way to learn web development online",
@@ -23,5 +23,6 @@
   "portfolio_arlb": "An augmented reality app that makes pictures move",
   "portfolio_acewill": "Prototype of the Acewill operating system distributed by Aprocle",
   "portfolio_kittisarus": "Kittisaurus personality test - which cat are you?",
-  "portfolio_articles": "Simple app for language teachers for creating fill-in-the-blanks exercises"
+  "portfolio_articles": "Simple app for language teachers for creating fill-in-the-blanks exercises",
+  "portfolio_uhrochu": "I designed a poster for accommodation Roubenka U Hrochů"
 }

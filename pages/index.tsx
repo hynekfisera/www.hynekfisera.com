@@ -27,6 +27,8 @@ import HelpdeskPortfolio from "/public/portfolio/portfolioHelpdesk.png";
 import KittisarusPortfolio from "/public/portfolio/portfolioKittisaurus.png";
 import ArticlesPortfolio from "/public/portfolio/portfolioArticles.png";
 import EkoPortfolio from "/public/portfolio/portfolioEko.png";
+import UHrochu from "/public/portfolio/UHrochu.svg";
+import UHrochuPortfolio from "/public/portfolio/portfolioUHrochu.png";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { NextSeo } from "next-seo";
@@ -115,7 +117,7 @@ const Home: NextPage = (props) => {
     },
     {
       image: EryesPortfolio,
-      type: t("category_social"),
+      type: t("category_design"),
       logo: Eryes,
       name: "Eryes",
       description: t("portfolio_eryes"),
@@ -156,6 +158,14 @@ const Home: NextPage = (props) => {
       name: "Article remover",
       description: t("portfolio_articles"),
       href: "https://odstraneni-clenu.hynekfisera.com/",
+    },
+    {
+      image: UHrochuPortfolio,
+      type: t("category_design"),
+      logo: UHrochu,
+      name: "Roubenka U Hrochů",
+      description: t("portfolio_uhrochu"),
+      href: "https://www.roubenkauhrochu.cz/",
     },
   ];
 
