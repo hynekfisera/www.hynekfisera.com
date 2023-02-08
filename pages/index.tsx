@@ -45,7 +45,7 @@ export async function getStaticProps({ locale }: any) {
 
 const Home: NextPage = (props) => {
   const { t }: any = useTranslation("index");
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState<null | boolean>(null);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -77,15 +77,6 @@ const Home: NextPage = (props) => {
       href: "https://arfi.cz/",
     },
     {
-      image: GarnetPortfolio,
-      type: t("category_logo"),
-      logo: Garnet,
-      name: "Garnet",
-      description: t("portfolio_garnet"),
-      href: "https://github.com/GarnetOS",
-    },
-    /*
-    {
       image: HelpdeskPortfolio,
       type: t("category_webapp"),
       logo: Helpdesk,
@@ -93,7 +84,14 @@ const Home: NextPage = (props) => {
       description: t("portfolio_helpdesk"),
       href: "https://kyberna.cz/",
     },
-    */
+    {
+      image: GarnetPortfolio,
+      type: t("category_logo"),
+      logo: Garnet,
+      name: "Garnet",
+      description: t("portfolio_garnet"),
+      href: "https://github.com/GarnetOS",
+    },
     {
       image: NyliumPortfolio,
       type: t("category_website"),
@@ -169,52 +167,6 @@ const Home: NextPage = (props) => {
     },
   ];
 
-  const WaitForAnimation = ({ children, i, className }: { children: ReactNode; i: number; className: string }) => {
-    if (i < 3) {
-      return (
-        <motion.div
-          className={className}
-          initial="initial"
-          animate="animate"
-          variants={{
-            initial: { opacity: 0, x: 0, y: isMobile ? 0 : -20 },
-            animate: {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              transition: {
-                delay: 0.15 + 0.07 * i,
-              },
-            },
-          }}
-        >
-          {children}
-        </motion.div>
-      );
-    } else if (i < 6) {
-      return (
-        <motion.div
-          className={className}
-          initial="initial"
-          animate="animate"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: {
-                delay: 0.25,
-              },
-            },
-          }}
-        >
-          {children}
-        </motion.div>
-      );
-    } else {
-      return <div className={className}>{children}</div>;
-    }
-  };
-
   return (
     <>
       <NextSeo
@@ -243,36 +195,16 @@ const Home: NextPage = (props) => {
       />
       <main className="max-w-screen-xl mx-auto px-8">
         <section className="mt-8 sm:mt-12 lg:mt-16" id="about-me">
-          <motion.div
-            initial="initial"
-            animate="animate"
-            variants={
-              isMobile
-                ? {}
-                : {
-                    initial: { opacity: 0, x: -20, y: 0 },
-                    animate: {
-                      opacity: 1,
-                      x: 0,
-                      y: 0,
-                      transition: {
-                        delay: 0.05,
-                      },
-                    },
-                  }
-            }
-          >
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
-              <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
-            </h1>
-            <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-              {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
-            </h2>
-          </motion.div>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
+            <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
+          </h1>
+          <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+            {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
+          </h2>
         </section>
         <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16" id="portfolio">
           {projects.map((project, i) => (
-            <WaitForAnimation key={project.name} i={i} className="flex flex-col items-center gap-3">
+            <WaitForAnimation key={project.name} i={i} className="flex flex-col items-center gap-3" isMobile={isMobile}>
               {project.image && (
                 <div className="w-full max-w-[90%] sm:max-w-[80%] h-auto -mb-2">
                   <Image src={project.image} alt={`${project.name} showcase`} />
@@ -297,3 +229,50 @@ const Home: NextPage = (props) => {
 };
 
 export default Home;
+
+const WaitForAnimation = ({ children, i, className, isMobile }: { children: ReactNode; i: number; className: string; isMobile: boolean | null }) => {
+  if (isMobile === null) return <></>;
+  if (i < 3) {
+    return (
+      <motion.div
+        className={className}
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: { opacity: 0, x: 0, y: isMobile ? 0 : -20 },
+          animate: {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            transition: {
+              delay: 0.15 + 0.07 * i,
+            },
+          },
+        }}
+      >
+        {children}
+      </motion.div>
+    );
+  } else if (i < 6) {
+    return (
+      <motion.div
+        className={className}
+        initial="initial"
+        animate="animate"
+        variants={{
+          initial: { opacity: 0 },
+          animate: {
+            opacity: 1,
+            transition: {
+              delay: 0.25,
+            },
+          },
+        }}
+      >
+        {children}
+      </motion.div>
+    );
+  } else {
+    return <div className={className}>{children}</div>;
+  }
+};
