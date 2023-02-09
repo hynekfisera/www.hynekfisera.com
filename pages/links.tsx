@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub, faInstagram, faLinkedin, faSpotify, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -25,42 +25,37 @@ const links = [
     title: "GitHub",
     icon: faGithub,
     href: "https://github.com/hynekfisera",
-    type: "secondary",
   },
   {
     title: "LinkedIn",
     icon: faLinkedin,
     href: "https://linkedin.com/in/hynekfisera",
-    type: "secondary",
   },
   {
     title: "Twitter",
     icon: faTwitter,
     href: "https://twitter.com/hynekfisera",
-    type: "tertiary",
   },
   {
     title: "Instagram",
     icon: faInstagram,
     href: "https://instagram.com/hynekfisera",
-    type: "tertiary",
   },
   {
     title: "Discord",
     icon: faDiscord,
     href: "https://arfi.cz/discord",
-    type: "tertiary",
   },
   {
     title: "Spotify",
     icon: faSpotify,
     href: "https://open.spotify.com/user/hynekfisera",
-    type: "tertiary",
   },
 ];
 
 export default function Links(props: any) {
   const { t }: any = useTranslation("links");
+  const [copied, setCopied] = useState("");
 
   const sections: Section[] = [
     {
@@ -83,7 +78,14 @@ export default function Links(props: any) {
     },
     { title: "Twitch", icon: faTwitch, links: [{ type: "external", title: "ArfiLive", description: t("twitch_description"), href: "https://twitch.tv/arfilive", image: TwitchIcon }], className: "bg-violet-50/70 border-violet-100" },
     { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
+    { title: "Discord", icon: faDiscord, links: [{ type: "copy", title: "Hynek#2939", description: t("email_description"), href: "Hynek#2939" }], className: "bg-indigo-50/70 border-indigo-100" },
   ];
+
+  const onCopy = (href: string): void => {
+    navigator.clipboard.writeText(href);
+    setCopied(href);
+    setTimeout(() => setCopied(""), 800);
+  };
 
   return (
     <>
@@ -112,7 +114,7 @@ export default function Links(props: any) {
         ]}
       />
       <main className="py-2 sm:py-8">
-        <h1 className="text-center text-3xl font-semibold mb-6 sm:mb-8">{t("heading")}</h1>
+        <h1 className="text-center text-3xl font-semibold mb-6 sm:mb-8 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0 flex flex-col gap-4">
           {sections.map((section) => (
             <div key={section.title} className={`rounded-xl border-2 p-5 ${section.className}`}>
@@ -121,13 +123,13 @@ export default function Links(props: any) {
               </h2>
               <div className="flex flex-col gap-2 mt-3">
                 {section.links.map((link) => (
-                  <LinkWrapper link={link} className="flex items-center gap-2 cursor-pointer border border-transparent hover:border-gray-700 rounded-lg py-1 px-1 sm:px-2" key={link.href}>
+                  <LinkWrapper link={link} className="flex items-center gap-2 cursor-pointer border border-transparent hover:border-gray-500 rounded-lg py-1 px-1 sm:px-2" key={link.href} onCopy={onCopy}>
                     {link.image && <Image src={link.image} alt={`${link.title} icon`} className="h-full max-h-[2.5rem] w-auto rounded-full" />}
                     <div className="flex flex-col">
                       <h3 className="font-medium text-gray-700">
                         {link.title} {link.type === "external" && <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-sm text-gray-600" />}
                       </h3>
-                      <div className="text-sm text-gray-600">{link.description}</div>
+                      <div className="text-sm text-gray-600">{copied === link.href ? t("copied") : link.description}</div>
                     </div>
                   </LinkWrapper>
                 ))}
@@ -137,7 +139,7 @@ export default function Links(props: any) {
         </div>
         <div className="max-w-sm mx-auto px-4 sm:px-0 flex flex-col gap-4 mt-4">
           {links.map((link) => (
-            <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.href} className="w-full text-lg font-medium border rounded-md px-5 py-2 text-gray-700 hover:border-slate-600 bg-gray-50/70 border-gray-200">
+            <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.href} className="w-full text-lg font-medium border rounded-md px-5 py-2 text-gray-700 hover:border-gray-500 bg-gray-50/70 border-gray-200">
               {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title} <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-sm text-gray-600" />
             </a>
           ))}
@@ -147,7 +149,7 @@ export default function Links(props: any) {
   );
 }
 
-const LinkWrapper = ({ link, children, className }: { link: SectionLink; children: React.ReactNode; className: string }) => {
+const LinkWrapper = ({ link, children, className, onCopy }: { link: SectionLink; children: React.ReactNode; className: string; onCopy: (href: string) => void }) => {
   switch (link.type) {
     case "internal":
       return (
@@ -163,7 +165,7 @@ const LinkWrapper = ({ link, children, className }: { link: SectionLink; childre
       );
     case "copy":
       return (
-        <div onClick={() => navigator.clipboard.writeText(link.href)} className={className}>
+        <div onClick={() => onCopy(link.href)} className={className}>
           {children}
         </div>
       );
