@@ -212,7 +212,8 @@ const Home: NextPage = (props) => {
               )}
               <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
               <div className={`flex items-center justify-center h-8 sm:h-9 ${!project.logo && "-my-1"}`}>
-                {project.logo ? <Image src={project.logo} alt={`${project.name} logo`} className="h-full w-auto" /> : <span className="text-gray-800 font-semibold text-2xl sm:text-3xl text-center">{project.name}</span>}
+                {project.logo && <Image src={project.logo} alt={`${project.name} logo`} className="h-full w-auto" />}
+                <h2 className={`text-gray-800 font-semibold text-2xl sm:text-3xl text-center ${project.logo && "hidden"}`}>{project.name}</h2>
               </div>
               <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
               {project.href && (
