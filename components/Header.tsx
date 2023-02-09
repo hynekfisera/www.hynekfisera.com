@@ -39,9 +39,6 @@ export default function Header() {
                 {link.text}
               </Link>
             ))}
-            <a href="mailto:hynek@flairleap.com" onClick={() => setVisible(false)} className="select-none uppercase tracking-wider hover:underline decoration-gray-500">
-              {t("contact")}
-            </a>
           </div>
         </div>
         <FontAwesomeIcon icon={faBars} className={`text-xl p-1 text-slate-700 sm:!hidden cursor-pointer`} onClick={() => setVisible((v) => !v)} />

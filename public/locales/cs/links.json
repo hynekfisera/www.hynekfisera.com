@@ -1,5 +1,11 @@
 {
   "title": "Odkazy - Hynek Fišera | Vývoj a design webových aplikací",
   "description": "Zde najdete odkazy na můj GitHub, LinkedIn a další sociální sítě",
-  "heading": "Odkazy"
+  "heading": "Odkazy",
+  "websites": "Webové stránky",
+  "website_arfi_description": "Web pro můj YouTube kanál",
+  "youtube_arfi_description": "Návody na vývoj webových aplikací",
+  "youtube_hynek_description": "Videa z cestování",
+  "twitch_description": "Programování živě",
+  "email_description": "Klikněte pro zkopírování do schránky"
 }

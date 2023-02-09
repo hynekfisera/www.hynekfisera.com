@@ -1,5 +1,11 @@
 {
   "title": "Links - Hynek Fišera | Web Development & UX Design",
   "description": "Here are links to my GitHub, LinkedIn and other social media profiles",
-  "heading": "Links"
+  "heading": "Links",
+  "websites": "Websites",
+  "website_arfi_description": "Website for my YouTube channel",
+  "youtube_arfi_description": "Czech coding tutorials",
+  "youtube_hynek_description": "Traveling/IRL videos",
+  "twitch_description": "Coding & programming live",
+  "email_description": "Click to copy to clipboard"
 }
