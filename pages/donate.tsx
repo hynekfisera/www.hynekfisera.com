@@ -89,7 +89,7 @@ export default function Donate(props: any) {
               </li>
               <li>
                 <a className="text-indigo-500 hover:underline" href={locale === "en" ? "https://www.wedos.com/?ap=10WER2" : "https://www.wedos.cz/?ap=10WER2"} target="_blank" rel="noopener noreferrer">
-                  WEDOS Internet
+                  WEDOS
                 </a>
               </li>
             </ul>

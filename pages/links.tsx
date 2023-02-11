@@ -74,7 +74,7 @@ export default function Links(props: any) {
         { type: "external", title: "Arfi", description: t("youtube_arfi_description"), href: "https://youtube.com/@phpMyArfi", image: ArfiIcon },
         { type: "external", title: "Hynek", description: t("youtube_hynek_description"), href: "https://youtube.com/@Haineku", image: HynekIcon },
       ],
-      className: "bg-rose-50/70 border-rose-100",
+      className: "bg-pink-50/70 border-pink-100",
     },
     { title: "Twitch", icon: faTwitch, links: [{ type: "external", title: "ArfiLive", description: t("twitch_description"), href: "https://twitch.tv/arfilive", image: TwitchIcon }], className: "bg-violet-50/70 border-violet-100" },
     { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
@@ -165,9 +165,9 @@ const LinkWrapper = ({ link, children, className, onCopy }: { link: SectionLink;
       );
     case "copy":
       return (
-        <div onClick={() => onCopy(link.href)} className={className}>
+        <button onClick={() => onCopy(link.href)} className={`${className} text-left`}>
           {children}
-        </div>
+        </button>
       );
   }
 };
