@@ -58,7 +58,7 @@ const Home: NextPage = (props) => {
       logo: Flairleap,
       name: "Flairleap",
       description: t("portfolio_flairleap"),
-      href: "https://flairleap.com/about",
+      href: "https://flairleap.com/?force_landing=1",
     },
     {
       image: SwiftpassPortfolio,
