@@ -2,7 +2,6 @@ import { faArrowDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Project } from "../types/Project";
 import Flairleap from "/public/portfolio/flairleap.svg";
 import FlairleapPortfolio from "/public/portfolio/portfolioFlairleap.png";
 import Swiftpass from "/public/portfolio/swiftpass.svg";
@@ -29,11 +28,15 @@ import ArticlesPortfolio from "/public/portfolio/portfolioArticles.png";
 import EkoPortfolio from "/public/portfolio/portfolioEko.png";
 import UHrochu from "/public/portfolio/UHrochu.svg";
 import UHrochuPortfolio from "/public/portfolio/portfolioUHrochu.png";
+import ASMR from "/public/portfolio/asmr.svg";
+import ASMRPortfolio from "/public/portfolio/portfolioAsmr.png";
+import VWAPortfolio from "/public/portfolio/portfolioVwa.png";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
 import { ReactNode, useState, useEffect } from "react";
+import { Category } from "../types/Category";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -51,119 +54,133 @@ const Home: NextPage = (props) => {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  const projects: Project[] = [
+  const categories: Category[] = [
     {
-      image: FlairleapPortfolio,
-      type: t("category_webapp"),
-      logo: Flairleap,
-      name: "Flairleap",
-      description: t("portfolio_flairleap"),
-      href: "https://flairleap.com/?force_landing=1",
+      name: t("category_webapp"),
+      projects: [
+        {
+          image: FlairleapPortfolio,
+          logo: Flairleap,
+          name: "Flairleap",
+          description: t("portfolio_flairleap"),
+          href: "https://flairleap.com/?force_landing=1",
+        },
+        {
+          image: HelpdeskPortfolio,
+          logo: Helpdesk,
+          name: "HelpDesk",
+          description: t("portfolio_helpdesk"),
+          href: "https://kyberna.cz/",
+        },
+        {
+          image: ASMRPortfolio,
+          logo: ASMR,
+          name: "interactiveASMR",
+          description: t("portfolio_asmr"),
+          href: "https://asmr.hynekfisera.com/",
+        },
+        {
+          image: SwiftpassPortfolio,
+          logo: Swiftpass,
+          name: "Swiftpass",
+          description: t("portfolio_swiftpass"),
+          href: "https://swiftpass.hynekfisera.com/",
+        },
+        {
+          image: KittisarusPortfolio,
+          name: "Kittisaurus",
+          description: t("portfolio_kittisarus"),
+          href: "https://kittisaurus.hynekfisera.com/",
+        },
+        {
+          image: ArticlesPortfolio,
+          name: "Article remover",
+          description: t("portfolio_articles"),
+          href: "https://odstraneni-clenu.hynekfisera.com/",
+        },
+        {
+          image: EkoPortfolio,
+          name: "EKO odpisy",
+          description: t("portfolio_eko"),
+          href: "https://eko-odpisy.hynekfisera.com/",
+        },
+      ],
     },
     {
-      image: SwiftpassPortfolio,
-      type: t("category_webapp"),
-      logo: Swiftpass,
-      name: "Swiftpass",
-      description: t("portfolio_swiftpass"),
-      href: "https://swiftpass.hynekfisera.com/",
+      name: t("category_website"),
+      projects: [
+        {
+          image: ArfiPortfolio,
+          logo: Arfi,
+          name: "Arfi",
+          description: t("portfolio_arfi"),
+          href: "https://arfi.cz/",
+        },
+        {
+          image: VWAPortfolio,
+          name: "VWA",
+          description: t("portfolio_vwa"),
+          href: "https://vwa.cz/",
+        },
+        {
+          image: NyliumPortfolio,
+          logo: Nylium,
+          name: "Nylium",
+          description: t("portfolio_nylium"),
+          href: "https://dev.hynekfisera.com/nylium/",
+        },
+        /*{
+          image: NekrPortfolio,
+          name: "HNK NEKR",
+          description: t("portfolio_nekr"),
+          href: "https://hnk-nekr.cz/",
+        },*/
+        /*{
+          image: VrccPortfolio,
+          logo: Vrcc,
+          name: "VRCC",
+          description: t("portfolio_vrcc"),
+        },*/
+        /*{
+          image: ArlbPortfolio,
+          logo: Arlb,
+          name: "AR Living Book",
+          description: t("portfolio_arlb"),
+        },*/
+      ],
     },
     {
-      image: ArfiPortfolio,
-      type: t("category_youtube"),
-      logo: Arfi,
-      name: "Arfi",
-      description: t("portfolio_arfi"),
-      href: "https://arfi.cz/",
-    },
-    {
-      image: HelpdeskPortfolio,
-      type: t("category_webapp"),
-      logo: Helpdesk,
-      name: "HelpDesk",
-      description: t("portfolio_helpdesk"),
-      href: "https://kyberna.cz/",
-    },
-    {
-      image: GarnetPortfolio,
-      type: t("category_logo"),
-      logo: Garnet,
-      name: "Garnet",
-      description: t("portfolio_garnet"),
-      href: "https://github.com/GarnetOS",
-    },
-    {
-      image: NyliumPortfolio,
-      type: t("category_website"),
-      logo: Nylium,
-      name: "Nylium",
-      description: t("portfolio_nylium"),
-    },
-    {
-      image: EkoPortfolio,
-      type: t("category_webapp"),
-      name: "EKO odpisy",
-      description: t("portfolio_eko"),
-      href: "https://eko-odpisy.hynekfisera.com/",
-    },
-    {
-      image: NekrPortfolio,
-      type: t("category_website"),
-      name: "HNK NEKR",
-      description: t("portfolio_nekr"),
-      href: "https://hnk-nekr.cz/",
-    },
-    {
-      image: EryesPortfolio,
-      type: t("category_design"),
-      logo: Eryes,
-      name: "Eryes",
-      description: t("portfolio_eryes"),
-      href: "https://www.twitch.tv/eryesloleague",
-    },
-    {
-      image: VrccPortfolio,
-      type: t("category_website"),
-      logo: Vrcc,
-      name: "VRCC",
-      description: t("portfolio_vrcc"),
-    },
-    {
-      image: ArlbPortfolio,
-      type: t("category_website"),
-      logo: Arlb,
-      name: "AR Living Book",
-      description: t("portfolio_arlb"),
-    },
-    {
-      image: AcewillPortfolio,
-      type: t("category_ui"),
-      logo: Acewill,
-      name: "Acewill",
-      description: t("portfolio_acewill"),
-      href: "http://aprocle.com/",
-    },
-    {
-      image: KittisarusPortfolio,
-      type: t("category_webapp"),
-      name: "Kittisaurus",
-      description: t("portfolio_kittisarus"),
-      href: "https://kittisaurus.hynekfisera.com/",
-    },
-    {
-      image: ArticlesPortfolio,
-      type: t("category_webapp"),
-      name: "Article remover",
-      description: t("portfolio_articles"),
-      href: "https://odstraneni-clenu.hynekfisera.com/",
-    },
-    {
-      image: UHrochuPortfolio,
-      type: t("category_design"),
-      logo: UHrochu,
-      name: "Roubenka U Hrochů",
-      description: t("portfolio_uhrochu"),
-      href: "https://www.roubenkauhrochu.cz/",
+      name: t("category_design_and_other"),
+      projects: [
+        {
+          image: UHrochuPortfolio,
+          logo: UHrochu,
+          name: "Roubenka U Hrochů",
+          description: t("portfolio_uhrochu"),
+          href: "https://www.roubenkauhrochu.cz/",
+        },
+        {
+          image: GarnetPortfolio,
+          logo: Garnet,
+          name: "Garnet",
+          description: t("portfolio_garnet"),
+          href: "https://github.com/GarnetOS",
+        },
+        {
+          image: EryesPortfolio,
+          logo: Eryes,
+          name: "Eryes",
+          description: t("portfolio_eryes"),
+          href: "https://www.twitch.tv/eryesloleague",
+        },
+        /*{
+          image: AcewillPortfolio,
+          logo: Acewill,
+          name: "Acewill",
+          description: t("portfolio_acewill"),
+          href: "http://aprocle.com/",
+        },*/
+      ],
     },
   ];
 
@@ -198,30 +215,37 @@ const Home: NextPage = (props) => {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold !leading-snug text-gray-900">
             <Trans t={t} i18nKey="intro" components={[<span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={0}></span>, <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600" key={1}></span>]} />
           </h1>
-          <h2 className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+          <p className="mt-4 sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
             {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
-          </h2>
+          </p>
         </section>
-        <section className="my-12 sm:my-16 lg:my-20 grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16" id="portfolio">
-          {projects.map((project, i) => (
-            <WaitForAnimation key={project.name} i={i} className="flex flex-col items-center gap-3" isMobile={isMobile}>
-              {project.image && (
-                <div className="w-full max-w-[90%] sm:max-w-[80%] h-auto -mb-2">
-                  <Image src={project.image} alt={`${project.name} showcase`} />
-                </div>
-              )}
-              <div className="text-sm sm:text-base uppercase tracking-wider text-gray-700">{project.type}</div>
-              <div className={`flex items-center justify-center h-8 sm:h-9 ${!project.logo && "-my-1"}`}>
-                {project.logo && <Image src={project.logo} alt={`${project.name} logo`} className="h-full w-auto" />}
-                <h2 className={`text-gray-800 font-semibold text-2xl sm:text-3xl text-center ${project.logo && "hidden"}`}>{project.name}</h2>
+        <section className="my-12 sm:my-16 lg:my-20 flex flex-col gap-12 sm:gap-16 lg:gap-20" id="portfolio">
+          {categories.map((category, i) => (
+            <div key={i}>
+              <h2 className="mb-2 text-xl sm:text-2xl capitalize font-medium text-gray-700">{category.name}</h2>
+              <hr className="mb-8 max-w-[70%] sm:max-w-[40%] md:max-w-[25%] border-gray-300" />
+              <div className="grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16">
+                {category.projects.map((project, i) => (
+                  <WaitForAnimation key={project.name} i={i} className="flex flex-col items-center gap-3" isMobile={isMobile}>
+                    {project.image && (
+                      <div className="w-full max-w-[90%] sm:max-w-[80%] h-auto -mb-2">
+                        <Image src={project.image} alt={`${project.name} showcase`} />
+                      </div>
+                    )}
+                    <div className={`flex items-center justify-center h-8 sm:h-9 ${!project.logo ? "-my-1" : "max-w-[60%]"}`}>
+                      {project.logo && <Image src={project.logo} alt={`${project.name} logo`} className="h-full w-auto" />}
+                      <h2 className={`text-gray-800 font-semibold text-2xl sm:text-3xl text-center ${project.logo && "hidden"}`}>{project.name}</h2>
+                    </div>
+                    <div className="text-center sm:text-lg font-medium text-gray-800">{project.description}</div>
+                    {project.href && (
+                      <a href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400" rel="noopener noreferrer" target="_blank">
+                        {t("learn_more")} <FontAwesomeIcon icon={faChevronRight} />
+                      </a>
+                    )}
+                  </WaitForAnimation>
+                ))}
               </div>
-              <div className="text-center sm:text-lg font-medium text-gray-900">{project.description}</div>
-              {project.href && (
-                <a href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400" rel="noopener noreferrer" target="_blank">
-                  {t("learn_more")} <FontAwesomeIcon icon={faChevronRight} />
-                </a>
-              )}
-            </WaitForAnimation>
+            </div>
           ))}
         </section>
       </main>

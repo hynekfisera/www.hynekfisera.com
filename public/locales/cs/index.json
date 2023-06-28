@@ -4,12 +4,9 @@
   "intro": "Full-stack <0>vývojář</0> webových aplikací a <1>tvůrce videí</1> na YouTube zajímající se také o UI/UX design a grafiku",
   "working_on": "Projekty, na kterých jsem pracoval",
   "learn_more": "Zjistit více",
-  "category_webapp": "Webová aplikace",
-  "category_youtube": "YouTube kanál",
-  "category_logo": "Design loga",
-  "category_website": "Webová stránka",
-  "category_ui": "UI design",
-  "category_design": "Grafický návrh",
+  "category_webapp": "Webové aplikace",
+  "category_website": "Statické webové stránky",
+  "category_design_and_other": "Grafický návrh & ostatní",
   "portfolio_flairleap": "Sociální síť pro všechny tvůrce, kteří potřebují zviditelnit svůj projekt",
   "portfolio_swiftpass": "Chytrý generátor hesel co tvoří hesla nejen silná, ale také jednoduchá na psaní",
   "portfolio_arfi": "Nejrychlejší a nejjednodušší návody na weby, hry a servery",
@@ -24,5 +21,7 @@
   "portfolio_acewill": "Vytvořil jsem prototyp operačního systému Acewill od Aprocle",
   "portfolio_kittisarus": "Test osobnosti vytvořený podle oblíbeného YouTube kanálu Kittisaurus",
   "portfolio_articles": "Aplikace pro učitele jazyků, která umožňuje jednoduše vytvářet cvičení na procičování členů",
-  "portfolio_uhrochu": "Vytvořil jsem plakát pro ubytování Roubenka U Hrochů"
+  "portfolio_uhrochu": "Vytvořil jsem plakát pro ubytování Roubenka U Hrochů",
+  "portfolio_asmr": "Stránka díky které si můžete užít ASMR obsah trochu jinak",
+  "portfolio_vwa": "Web prezentující sérii návodů na Vývoj Webových Aplikací"
 }

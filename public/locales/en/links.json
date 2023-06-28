@@ -4,9 +4,11 @@
   "heading": "Links",
   "websites": "Websites",
   "website_arfi_description": "Website for my YouTube channel",
+  "website_vwa_description": "My web-app-development tutorials",
   "youtube_arfi_description": "Czech coding tutorials",
   "youtube_hynek_description": "Traveling/IRL videos",
   "twitch_description": "Coding & programming live",
   "email_description": "Click to copy to clipboard",
-  "copied": "Copied!"
+  "copied": "Copied!",
+  "view_more": "View more"
 }

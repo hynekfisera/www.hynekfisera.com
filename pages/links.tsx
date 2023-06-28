@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faGithub, faInstagram, faLinkedin, faSpotify, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare, faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faArtstation, faBehanceSquare, faDeviantart, faDiscord, faDribbble, faFacebook, faGithub, faInstagram, faLinkedin, faPatreon, faReddit, faSpotify, faTiktok, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare, faChevronDown, faEnvelope, faGlobe, faLink } from "@fortawesome/free-solid-svg-icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
@@ -25,11 +25,13 @@ const links = [
     title: "GitHub",
     icon: faGithub,
     href: "https://github.com/hynekfisera",
+    priority: 2,
   },
   {
     title: "LinkedIn",
     icon: faLinkedin,
     href: "https://linkedin.com/in/hynekfisera",
+    priority: 1,
   },
   {
     title: "Twitter",
@@ -42,7 +44,7 @@ const links = [
     href: "https://instagram.com/hynekfisera",
   },
   {
-    title: "Discord",
+    title: "Discord server",
     icon: faDiscord,
     href: "https://arfi.cz/discord",
   },
@@ -51,11 +53,43 @@ const links = [
     icon: faSpotify,
     href: "https://open.spotify.com/user/hynekfisera",
   },
+  {
+    title: "Goodreads",
+    icon: faLink,
+    href: "https://goodreads.com/hynekfisera",
+  },
+  {
+    title: "Flairleap",
+    icon: faLink,
+    href: "https://flairleap.com/hynekfisera",
+  },
+  {
+    title: "Quizlet",
+    icon: faLink,
+    href: "https://quizlet.com/hynekfisera",
+  },
+  {
+    title: "Patreon",
+    icon: faPatreon,
+    href: "https://patreon.com/hynekfisera",
+  },
+  {
+    title: "Buy Me a Coffee",
+    icon: faLink,
+    href: "https://buymeacoffee.com/hynekfisera",
+  },
 ];
+
+links.sort((a, b) => {
+  if ((a.priority ?? 0) > (b.priority ?? 0)) return -1;
+  if ((a.priority ?? 0) < (b.priority ?? 0)) return 1;
+  return a.title.localeCompare(b.title);
+});
 
 export default function Links(props: any) {
   const { t }: any = useTranslation("links");
   const [copied, setCopied] = useState("");
+  const [viewMore, setViewMore] = useState(false);
 
   const sections: Section[] = [
     {
@@ -64,6 +98,7 @@ export default function Links(props: any) {
       links: [
         { type: "internal", title: "Portfolio", description: t("working_on", { ns: "index" }), href: "/" },
         { type: "external", title: "Arfi.cz", description: t("website_arfi_description"), href: "https://arfi.cz/" },
+        { type: "external", title: "VWA.cz", description: t("website_vwa_description"), href: "https://vwa.cz/" },
       ],
       className: "bg-indigo-50/70 border-indigo-100",
     },
@@ -112,6 +147,7 @@ export default function Links(props: any) {
             href: "https://www.hynekfisera.cz/links",
           },
         ]}
+        nofollow={true}
       />
       <main className="py-2 sm:py-8">
         <h1 className="text-center text-3xl font-semibold mb-6 sm:mb-8 hidden sm:block">{t("heading")}</h1>
@@ -138,11 +174,18 @@ export default function Links(props: any) {
           ))}
         </div>
         <div className="max-w-sm mx-auto px-4 sm:px-0 flex flex-col gap-4 mt-4">
-          {links.map((link) => (
-            <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.href} className="w-full text-lg font-medium border rounded-md px-5 py-2 text-gray-700 hover:border-gray-500 bg-gray-50/70 border-gray-200">
-              {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title} <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-sm text-gray-600" />
-            </a>
-          ))}
+          {links
+            .filter((link) => (viewMore ? true : (link.priority ?? 0) > 0))
+            .map((link) => (
+              <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.href} className="w-full text-lg font-medium border rounded-md px-5 py-2 text-gray-700 hover:border-gray-500 bg-gray-50/70 border-gray-200">
+                {link.icon && <FontAwesomeIcon icon={link.icon} className="h-4" />} {link.title} <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-sm text-gray-600" />
+              </a>
+            ))}
+          {!viewMore && (
+            <button onClick={() => setViewMore(true)} className="block mx-auto text-sm text-gray-500 hover:underline font-medium text-center">
+              {t("view_more")} <FontAwesomeIcon icon={faChevronDown} />
+            </button>
+          )}
         </div>
       </main>
     </>

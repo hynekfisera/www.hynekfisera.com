@@ -4,9 +4,11 @@
   "heading": "Odkazy",
   "websites": "Webové stránky",
   "website_arfi_description": "Web pro můj YouTube kanál",
-  "youtube_arfi_description": "Návody na vývoj webových aplikací",
+  "website_vwa_description": "Moje návody na vývoj webových aplikací",
+  "youtube_arfi_description": "Návody na weby, hry a servery",
   "youtube_hynek_description": "Videa z cestování",
   "twitch_description": "Programování živě",
   "email_description": "Klikněte pro zkopírování do schránky",
-  "copied": "Zkopírováno!"
+  "copied": "Zkopírováno!",
+  "view_more": "Zobrazit další"
 }
