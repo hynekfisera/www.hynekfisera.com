@@ -219,11 +219,11 @@ const Home: NextPage = (props) => {
             {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
           </p>
         </section>
-        <section className="my-12 sm:my-16 lg:my-20 flex flex-col gap-12 sm:gap-16 lg:gap-20" id="portfolio">
+        <section className="my-12 sm:my-16 lg:my-20 flex flex-col gap-20" id="portfolio">
           {categories.map((category, i) => (
             <div key={i}>
-              <h2 className="mb-2 text-xl sm:text-2xl capitalize font-medium text-gray-700">{category.name}</h2>
-              <hr className="mb-8 max-w-[70%] sm:max-w-[40%] md:max-w-[25%] border-gray-300" />
+              <h2 className="mb-2 text-lg sm:text-xl lg:text-2xl capitalize font-medium text-gray-700">{category.name}</h2>
+              <hr className="mb-8 max-w-[60%] sm:max-w-[40%] md:max-w-[25%] border-gray-300" />
               <div className="grid place-items-center sm:grid-cols-2 xl:grid-cols-3 gap-12 sm:gap-16">
                 {category.projects.map((project, i) => (
                   <WaitForAnimation key={project.name} i={i} className="flex flex-col items-center gap-3" isMobile={isMobile}>
