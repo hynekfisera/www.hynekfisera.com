@@ -112,7 +112,7 @@ export default function Links(props: any) {
       className: "bg-pink-50/70 border-pink-100",
     },
     { title: "Twitch", icon: faTwitch, links: [{ type: "external", title: "ArfiLive", description: t("twitch_description"), href: "https://twitch.tv/arfilive", image: TwitchIcon }], className: "bg-violet-50/70 border-violet-100" },
-    { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek.fisera@seznam.cz", description: t("email_description"), href: "hynek.fisera@seznam.cz" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
+    { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
     { title: "Discord", icon: faDiscord, links: [{ type: "copy", title: "@hynekfisera", description: t("email_description"), href: "hynekfisera" }], className: "bg-indigo-50/70 border-indigo-100" },
   ];
 
