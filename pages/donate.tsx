@@ -51,8 +51,8 @@ export default function Donate(props: any) {
             <p className="text-slate-500 mt-0.5">{t("subscriptions_description")}</p>
             <ul className="list-inside list-disc mt-1.5">
               <li>
-                <a className="text-indigo-500 hover:underline" href="https://patreon.com/hynekfisera" target="_blank" rel="noopener noreferrer">
-                  Patreon
+                <a className="text-indigo-500 hover:underline" href="https://www.buymeacoffee.com/hynekfisera/membership" target="_blank" rel="noopener noreferrer">
+                  Buy Me a Coffee Membership
                 </a>
               </li>
             </ul>
