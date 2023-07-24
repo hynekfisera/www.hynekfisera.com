@@ -98,12 +98,6 @@ const Home: NextPage = (props) => {
           description: t("portfolio_articles"),
           href: "https://odstraneni-clenu.hynekfisera.com/",
         },
-        {
-          image: EkoPortfolio,
-          name: "EKO odpisy",
-          description: t("portfolio_eko"),
-          href: "https://eko-odpisy.hynekfisera.com/",
-        },
       ],
     },
     {
@@ -123,30 +117,11 @@ const Home: NextPage = (props) => {
           href: "https://vwa.cz/",
         },
         {
-          image: NyliumPortfolio,
-          logo: Nylium,
-          name: "Nylium",
-          description: t("portfolio_nylium"),
-          href: "https://dev.hynekfisera.com/nylium/",
-        },
-        /*{
           image: NekrPortfolio,
           name: "HNK NEKR",
           description: t("portfolio_nekr"),
           href: "https://hnk-nekr.cz/",
-        },*/
-        /*{
-          image: VrccPortfolio,
-          logo: Vrcc,
-          name: "VRCC",
-          description: t("portfolio_vrcc"),
-        },*/
-        /*{
-          image: ArlbPortfolio,
-          logo: Arlb,
-          name: "AR Living Book",
-          description: t("portfolio_arlb"),
-        },*/
+        },
       ],
     },
     {
@@ -173,13 +148,43 @@ const Home: NextPage = (props) => {
           description: t("portfolio_eryes"),
           href: "https://www.twitch.tv/eryesloleague",
         },
-        /*{
+      ],
+    },
+    {
+      name: t("category_retired_projects"),
+      projects: [
+        {
+          image: EkoPortfolio,
+          name: "EKO odpisy",
+          description: t("portfolio_eko"),
+          href: "https://eko-odpisy.hynekfisera.com/",
+        },
+        {
+          image: NyliumPortfolio,
+          logo: Nylium,
+          name: "Nylium",
+          description: t("portfolio_nylium"),
+          href: "https://dev.hynekfisera.com/nylium/",
+        },
+        {
+          image: VrccPortfolio,
+          logo: Vrcc,
+          name: "VRCC",
+          description: t("portfolio_vrcc"),
+          href: "https://dev.hynekfisera.com/vrcc/",
+        },
+        {
           image: AcewillPortfolio,
           logo: Acewill,
           name: "Acewill",
           description: t("portfolio_acewill"),
-          href: "http://aprocle.com/",
-        },*/
+        },
+        {
+          image: ArlbPortfolio,
+          logo: Arlb,
+          name: "AR Living Book",
+          description: t("portfolio_arlb"),
+        },
       ],
     },
   ];
@@ -219,7 +224,7 @@ const Home: NextPage = (props) => {
             {t("working_on")} <FontAwesomeIcon icon={faArrowDown} className="ml-1 text-purple-500" />
           </p>
         </section>
-        <section className="my-12 sm:my-16 lg:my-20 flex flex-col gap-20" id="portfolio">
+        <section className="my-12 sm:my-16 lg:my-20 flex flex-col gap-24" id="portfolio">
           {categories.map((category, i) => (
             <div key={i}>
               <h2 className="mb-2 text-lg sm:text-xl lg:text-2xl capitalize font-medium text-gray-700">{category.name}</h2>
