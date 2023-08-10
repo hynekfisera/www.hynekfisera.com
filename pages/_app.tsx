@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 function MyApp({ Component, pageProps, router }: AppProps) {
