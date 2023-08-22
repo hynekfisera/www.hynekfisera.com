@@ -15,6 +15,10 @@ export default function Header() {
       href: "/",
     },
     {
+      text: t("about"),
+      href: "/about-me",
+    },
+    {
       text: t("social"),
       href: "/links",
     },

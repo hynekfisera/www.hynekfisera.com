@@ -1,0 +1,21 @@
+{
+  "title": "O mně - Hynek Fišera | Web Development & UX Design",
+  "description": "Informace o mně, mých zkušenostech a dovednostech.",
+  "heading": "O mně",
+  "photo_alt": "Moje fotka",
+  "name_label": "Jmenuji se",
+  "age_label": "Je mi",
+  "age": "19 let",
+  "personality_label": "Typ osobnosti",
+  "location_label": "Jsem z",
+  "location": "Hradce Králové",
+  "education_label": "Aktuálně studuji",
+  "education": "Informační Management na UHK",
+  "education_heading": "Studium",
+  "certificates_heading": "Certifikace",
+  "kyberna": "Střední škola a vyšší odborná škola aplikované kybernetiky",
+  "kyberna_description": "Střední vzdělání s maturitou, Informační technologie (Programování)",
+  "uhk": "Univerzita Hradec Králové",
+  "uhk_description": "Bakalářské studium, Informační Management",
+  "cisco": "Uděleno společností Cisco"
+}
