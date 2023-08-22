@@ -8,9 +8,9 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import Image from "next/image";
 import { Section, SectionLink } from "../types/Links";
-import ArfiIcon from "/public/assets/arfi_icon_small.jpg";
+import ArfiIcon from "/public/assets/arfi_icon_small.png";
 import HynekIcon from "/public/assets/hynek_icon_small.jpg";
-import TwitchIcon from "/public/assets/twitch_icon_small.png";
+import TwitchIcon from "/public/assets/twitch_icon_small.jpg";
 
 export async function getStaticProps({ locale }: any) {
   return {

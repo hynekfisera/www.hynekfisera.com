@@ -9,6 +9,11 @@ import Fim from "/public/assets/fim.svg";
 import Ccna1 from "/public/assets/ccna1_icon.png";
 import Ccna2 from "/public/assets/ccna2_icon.png";
 import Ccna3 from "/public/assets/ccna3_icon.png";
+import Link from "next/link";
+import ArfiIcon from "/public/assets/arfi_icon_small.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition, faArrowUpRightFromSquare, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -59,6 +64,23 @@ export default function AboutMe(props: any) {
               <Info label={t("personality_label")} text="INFJ-T" />
               <Info label={t("education_label")} text={t("education")} double={true} />
             </div>
+          </section>
+          <section className="grid grid-cols-2 gap-4">
+            <Section>
+              <SectionHeading>{t("work_heading")}</SectionHeading>
+              <div className="mt-1 text-lg text-gray-900">{t("work_description")}</div>
+              <div className="flex gap-2.5 mt-2">
+                <SectionLink fa={faCode} title="Portfolio" description={t("link_portfolio")} href="/" />
+                <SectionLink fa={faGithub} title="GitHub" description={t("link_github")} href="https://github.com/hynekfisera" external={true} />
+              </div>
+            </Section>
+            <Section>
+              <SectionHeading>{t("content_heading")}</SectionHeading>
+              <div className="mt-1 text-lg text-gray-900">{t("content_description")}</div>
+              <div className="flex gap-2.5 mt-2">
+                <SectionLink icon={ArfiIcon} title="Arfi" description={`700 ${t("subscribers")}`} href="https://youtube.com/@phpMyArfi" external={true} />
+              </div>
+            </Section>
           </section>
           <Section>
             <SectionHeading>{t("education_heading")}</SectionHeading>
@@ -113,5 +135,20 @@ const SectionItem = ({ icon, title, description, year }: { icon?: StaticImageDat
         </div>
       </div>
     </div>
+  );
+};
+
+const SectionLink = ({ fa, icon, title, href, description, external }: { fa?: IconDefinition; icon?: StaticImageData; title: string; href: string; description?: string; external?: boolean }) => {
+  return (
+    <Link href={href} className="flex items-center gap-2 cursor-pointer bg-gray-50 border border-gray-300 hover:border-gray-500 rounded-lg py-2 px-2 sm:px-4" target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
+      {fa && <FontAwesomeIcon icon={fa} className="text-2xl text-gray-900" />}
+      {icon && <Image src={icon} alt={`${title} icon`} className="h-full max-h-[2.5rem] w-auto rounded-full" />}
+      <div className="flex flex-col">
+        <h3 className="font-medium text-gray-700">
+          {title} {external && <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-sm text-gray-600" />}
+        </h3>
+        {description && <div className="text-sm text-gray-600">{description}</div>}
+      </div>
+    </Link>
   );
 };
