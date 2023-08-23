@@ -147,8 +147,10 @@ const SectionItem = ({ icon, title, description, year, href }: { icon?: StaticIm
 };
 
 const SectionLink = ({ fa, icon, title, href, description, external }: { fa?: IconDefinition; icon?: StaticImageData; title: string; href: string; description?: string; external?: boolean }) => {
+  const Tag = external ? "a" : Link;
+
   return (
-    <Link href={href} className="w-full md:w-auto flex items-center gap-2.5 cursor-pointer bg-gray-50 border border-gray-300 hover:border-gray-500 rounded-lg py-1.5 md:py-2 px-3 md:px-4" target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
+    <Tag href={href} className="w-full md:w-auto flex items-center gap-2.5 cursor-pointer bg-gray-50 border border-gray-300 hover:border-gray-500 rounded-lg py-1.5 md:py-2 px-3 md:px-4" target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
       {fa && <FontAwesomeIcon icon={fa} className="text-2xl max-w-[1.25rem] sm:max-w-none text-indigo-600" />}
       {icon && <Image src={icon} alt={`${title} icon`} className="h-full max-h-[2.5rem] w-auto rounded-full" />}
       <div className="flex flex-col">
@@ -157,7 +159,7 @@ const SectionLink = ({ fa, icon, title, href, description, external }: { fa?: Ic
         </h3>
         {description && <div className="text-sm text-gray-600">{description}</div>}
       </div>
-    </Link>
+    </Tag>
   );
 };
 
