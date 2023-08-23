@@ -24,5 +24,9 @@
   "kyberna_description": "High School degree, Computer Science (Programming)",
   "uhk": "University of Hradec Králové",
   "uhk_description": "Bachelor's degree, Information Management",
-  "cisco": "Issued by Cisco"
+  "cisco": "Issued by Cisco",
+  "contact_heading": "Where can you find me?",
+  "linkedin": "Let's connect",
+  "links": "Links",
+  "links_description": "@hynekfisera on all socials"
 }

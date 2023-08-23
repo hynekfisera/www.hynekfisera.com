@@ -150,7 +150,7 @@ export default function Links(props: any) {
         nofollow={true}
       />
       <main className="py-2 sm:py-8">
-        <h1 className="text-center text-3xl font-semibold mb-6 sm:mb-8 hidden sm:block">{t("heading")}</h1>
+        <h1 className="text-center text-3xl font-medium mb-6 sm:mb-8 text-gray-800 hidden sm:block">{t("heading")}</h1>
         <div className="max-w-sm mx-auto px-4 sm:px-0 flex flex-col gap-4">
           {sections.map((section) => (
             <div key={section.title} className={`rounded-xl border-2 p-5 ${section.className}`}>

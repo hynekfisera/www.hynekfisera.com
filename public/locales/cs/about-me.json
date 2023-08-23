@@ -10,7 +10,7 @@
   "location_label": "Jsem z",
   "location": "Hradce Králové",
   "education_label": "Aktuálně studuji",
-  "education": "Informační Management na UHK",
+  "education": "Informační management na UHK",
   "work_heading": "Moje práce",
   "work_description": "Jsem full-stack vývojář webových aplikací a pracuji hlavně s frameworkem Next.js - prohlédněte si mé portfolio!",
   "link_portfolio": "Projekty na kterých jsem pracoval",
@@ -23,6 +23,10 @@
   "kyberna": "Střední škola a vyšší odborná škola aplikované kybernetiky",
   "kyberna_description": "Střední vzdělání s maturitou, Informační technologie (Programování)",
   "uhk": "Univerzita Hradec Králové",
-  "uhk_description": "Bakalářské studium, Informační Management",
-  "cisco": "Uděleno společností Cisco"
+  "uhk_description": "Bakalářské studium, Informační management",
+  "cisco": "Uděleno společností Cisco",
+  "contact_heading": "Kde mě najdete?",
+  "linkedin": "Pojďme se spojit",
+  "links": "Odkazy",
+  "links_description": "@hynekfisera na všech platformách"
 }

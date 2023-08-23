@@ -12,8 +12,8 @@ import Ccna3 from "/public/assets/ccna3_icon.png";
 import Link from "next/link";
 import ArfiIcon from "/public/assets/arfi_icon_small.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition, faArrowUpRightFromSquare, faCode } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { IconDefinition, faArrowUpRightFromSquare, faCode, faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -52,34 +52,34 @@ export default function AboutMe(props: any) {
           },
         ]}
       />
-      <main className="max-w-screen-xl mx-auto px-8 py-2 sm:py-8">
-        <h1 className="text-center text-3xl font-semibold mb-6 sm:mb-8">{t("heading")}</h1>
+      <main className="max-w-lg xl:max-w-screen-xl mx-auto px-8 py-2 sm:py-8">
+        <h1 className="text-center text-2xl sm:text-3xl font-medium mb-6 sm:mb-8 text-gray-800">{t("heading")}</h1>
         <div className="grid gap-4">
           <section>
-            <div className="grid grid-cols-5 grid-rows-2 gap-4">
-              <Info label={t("name_label")} text="Hynek Fišera" double={true} />
+            <div className="grid grid-cols-2 xl:grid-cols-5 xl:grid-rows-2 gap-4">
+              <Info label={t("name_label")} text="Hynek Fišera" double={true} className="max-xl:!col-span-1" />
               <Info label={t("location_label")} text={t("location")} double={true} />
-              <Image src={Photo} alt={t("photo_alt")} className="rounded-3xl row-span-2" />
+              <Image src={Photo} alt={t("photo_alt")} className="xl:h-full w-full rounded-xl xl:rounded-3xl row-start-1 col-start-2 xl:row-start-auto xl:col-start-auto xl:row-span-2" />
               <Info label={t("age_label")} text={t("age")} />
               <Info label={t("personality_label")} text="INFJ-T" />
               <Info label={t("education_label")} text={t("education")} double={true} />
             </div>
           </section>
-          <section className="grid grid-cols-2 gap-4">
-            <Section>
+          <section className="grid xl:grid-cols-5 gap-4">
+            <Section className="xl:col-span-3">
               <SectionHeading>{t("work_heading")}</SectionHeading>
-              <div className="mt-1 text-lg text-gray-900">{t("work_description")}</div>
-              <div className="flex gap-2.5 mt-2">
+              <SectionDescription>{t("work_description")}</SectionDescription>
+              <LinkGroup>
                 <SectionLink fa={faCode} title="Portfolio" description={t("link_portfolio")} href="/" />
                 <SectionLink fa={faGithub} title="GitHub" description={t("link_github")} href="https://github.com/hynekfisera" external={true} />
-              </div>
+              </LinkGroup>
             </Section>
-            <Section>
+            <Section className="xl:col-span-2">
               <SectionHeading>{t("content_heading")}</SectionHeading>
-              <div className="mt-1 text-lg text-gray-900">{t("content_description")}</div>
-              <div className="flex gap-2.5 mt-2">
+              <SectionDescription>{t("content_description")}</SectionDescription>
+              <LinkGroup>
                 <SectionLink icon={ArfiIcon} title="Arfi" description={`700 ${t("subscribers")}`} href="https://youtube.com/@phpMyArfi" external={true} />
-              </div>
+              </LinkGroup>
             </Section>
           </section>
           <Section>
@@ -97,27 +97,35 @@ export default function AboutMe(props: any) {
               <SectionItem icon={Ccna1} title="CCNA: Introduction to Networks" description={t("cisco")} year="2021" />
             </SectionList>
           </Section>
+          <Section>
+            <SectionHeading>{t("contact_heading")}</SectionHeading>
+            <LinkGroup>
+              <SectionLink fa={faLink} title={t("links")} description={t("links_description")} href="/links" />
+              <SectionLink fa={faLinkedin} title="LinkedIn" description={t("linkedin")} href="https://linkedin.com/in/hynekfisera" external={true} />
+              <SectionLink fa={faEnvelope} title="Email" description="hynek@flairleap.com" href="mailto:hynek@flairleap.com" />
+            </LinkGroup>
+          </Section>
         </div>
       </main>
     </>
   );
 }
 
-const Info = ({ label, text, double }: { label: string; text: string; double?: boolean }) => {
+const Info = ({ label, text, double, className }: { label: string; text: string; double?: boolean; className?: string }) => {
   return (
-    <div className={`flex flex-col justify-center p-6 gap-1 bg-gray-100 rounded-3xl ${double ? "col-span-2" : ""}`}>
-      <div className="uppercase text-gray-600">{label}</div>
-      <div className="text-2xl font-semibold text-blue-500">{text}</div>
+    <div className={`flex flex-col justify-center p-4 xl:p-6 gap-1 border border-gray-200 rounded-xl xl:rounded-3xl ${double ? "col-span-2" : ""} ${className ?? ""}`}>
+      <div className="uppercase text-gray-600 text-xs sm:text-sm lg:text-base">{label}</div>
+      <div className="sm:text-xl xl:text-2xl font-semibold text-indigo-600">{text}</div>
     </div>
   );
 };
 
 const Section = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-  return <section className={`bg-gray-100 rounded-3xl p-6 ${className ?? ""}`}>{children}</section>;
+  return <section className={`pt-6 md:p-6 ${className ?? ""}`}>{children}</section>;
 };
 
 const SectionHeading = ({ children }: { children: string }) => {
-  return <h2 className="text-2xl text-gray-500 font-medium">{children}</h2>;
+  return <h2 className="mb-1.5 md:mb-0 text-xl lg:text-2xl text-gray-500 font-medium">{children}</h2>;
 };
 
 const SectionList = ({ children }: { children: React.ReactNode }) => {
@@ -129,7 +137,7 @@ const SectionItem = ({ icon, title, description, year }: { icon?: StaticImageDat
     <div className="flex items-center gap-3">
       {icon && <Image src={icon} alt={`${title} logo`} className="w-full max-w-[2rem] h-auto" />}
       <div className="flex flex-col">
-        <h3 className="text-lg font-medium text-gray-800">{title}</h3>
+        <h3 className="sm:text-lg font-medium text-gray-800">{title}</h3>
         <div className="text-sm text-gray-600">
           {year} | {description}
         </div>
@@ -140,8 +148,8 @@ const SectionItem = ({ icon, title, description, year }: { icon?: StaticImageDat
 
 const SectionLink = ({ fa, icon, title, href, description, external }: { fa?: IconDefinition; icon?: StaticImageData; title: string; href: string; description?: string; external?: boolean }) => {
   return (
-    <Link href={href} className="flex items-center gap-2 cursor-pointer bg-gray-50 border border-gray-300 hover:border-gray-500 rounded-lg py-2 px-2 sm:px-4" target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
-      {fa && <FontAwesomeIcon icon={fa} className="text-2xl text-gray-900" />}
+    <Link href={href} className="w-full md:w-auto flex items-center gap-2.5 cursor-pointer bg-gray-50 border border-gray-300 hover:border-gray-500 rounded-lg py-1.5 md:py-2 px-3 md:px-4" target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
+      {fa && <FontAwesomeIcon icon={fa} className="text-2xl max-w-[1.25rem] sm:max-w-none text-indigo-600" />}
       {icon && <Image src={icon} alt={`${title} icon`} className="h-full max-h-[2.5rem] w-auto rounded-full" />}
       <div className="flex flex-col">
         <h3 className="font-medium text-gray-700">
@@ -151,4 +159,12 @@ const SectionLink = ({ fa, icon, title, href, description, external }: { fa?: Ic
       </div>
     </Link>
   );
+};
+
+const SectionDescription = ({ children }: { children: React.ReactNode }) => {
+  return <div className="my-1 sm:text-lg text-gray-900">{children}</div>;
+};
+
+const LinkGroup = ({ children }: { children: React.ReactNode }) => {
+  return <div className="w-full flex flex-wrap gap-2.5 mt-2">{children}</div>;
 };
