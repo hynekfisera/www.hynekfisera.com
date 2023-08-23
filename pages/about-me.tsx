@@ -85,16 +85,16 @@ export default function AboutMe(props: any) {
           <Section>
             <SectionHeading>{t("education_heading")}</SectionHeading>
             <SectionList>
-              <SectionItem icon={Fim} title={t("uhk")} description={t("uhk_description")} year="2023 - 2026" />
-              <SectionItem icon={Kyberna} title={t("kyberna")} description={t("kyberna_description")} year="2019 - 2023" />
+              <SectionItem href="https://uhk.cz/" icon={Fim} title={t("uhk")} description={t("uhk_description")} year="2023 - 2026" />
+              <SectionItem href="https://kyberna.cz/" icon={Kyberna} title={t("kyberna")} description={t("kyberna_description")} year="2019 - 2023" />
             </SectionList>
           </Section>
           <Section>
             <SectionHeading>{t("certificates_heading")}</SectionHeading>
             <SectionList>
-              <SectionItem icon={Ccna3} title="CCNA: Enterprise Networking, Security, and Automation" description={t("cisco")} year="2023" />
-              <SectionItem icon={Ccna2} title="CCNA: Switching, Routing, and Wireless Essentials" description={t("cisco")} year="2022" />
-              <SectionItem icon={Ccna1} title="CCNA: Introduction to Networks" description={t("cisco")} year="2021" />
+              <SectionItem href="https://www.credly.com/badges/5cadbc5e-34d9-4680-ac8d-80bbddef8d04/public_url" icon={Ccna3} title="CCNA: Enterprise Networking, Security, and Automation" description={t("cisco")} year="2023" />
+              <SectionItem href="https://www.credly.com/badges/97100691-f076-4bdc-9be9-2b1ac9f8d364/public_url" icon={Ccna2} title="CCNA: Switching, Routing, and Wireless Essentials" description={t("cisco")} year="2022" />
+              <SectionItem href="https://www.credly.com/badges/05ff75ff-625e-4af4-a1bb-fafd738e4597/public_url" icon={Ccna1} title="CCNA: Introduction to Networks" description={t("cisco")} year="2021" />
             </SectionList>
           </Section>
           <Section>
@@ -132,17 +132,17 @@ const SectionList = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex flex-col gap-2.5 mt-2.5">{children}</div>;
 };
 
-const SectionItem = ({ icon, title, description, year }: { icon?: StaticImageData; title: string; description: string; year: string }) => {
+const SectionItem = ({ icon, title, description, year, href }: { icon?: StaticImageData; title: string; description: string; year: string; href: string }) => {
   return (
-    <div className="flex items-center gap-3">
+    <Link href={href} className="group mr-auto flex items-center gap-3" target="_blank" rel="noopener noreferrer">
       {icon && <Image src={icon} alt={`${title} logo`} className="w-full max-w-[2rem] h-auto" />}
       <div className="flex flex-col">
-        <h3 className="sm:text-lg font-medium text-gray-800">{title}</h3>
+        <h3 className="sm:text-lg font-medium text-gray-800 group-hover:underline">{title}</h3>
         <div className="text-sm text-gray-600">
           {year} | {description}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
