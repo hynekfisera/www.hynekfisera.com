@@ -134,7 +134,7 @@ const SectionList = ({ children }: { children: React.ReactNode }) => {
 
 const SectionItem = ({ icon, title, description, year, href }: { icon?: StaticImageData; title: string; description: string; year: string; href: string }) => {
   return (
-    <Link href={href} className="group mr-auto flex items-center gap-3" target="_blank" rel="noopener noreferrer">
+    <a href={href} className="group mr-auto flex items-center gap-3" target="_blank" rel="noopener noreferrer">
       {icon && <Image src={icon} alt={`${title} logo`} className="w-full max-w-[2rem] h-auto" />}
       <div className="flex flex-col">
         <h3 className="sm:text-lg font-medium text-gray-800 group-hover:underline">{title}</h3>
@@ -142,7 +142,7 @@ const SectionItem = ({ icon, title, description, year, href }: { icon?: StaticIm
           {year} | {description}
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 
