@@ -55,16 +55,24 @@ export default function AboutMe(props: any) {
       <main className="max-w-lg xl:max-w-screen-xl mx-auto px-8 py-2 sm:py-8">
         <h1 className="text-center text-2xl sm:text-3xl font-medium mb-6 sm:mb-8 text-gray-800">{t("heading")}</h1>
         <div className="grid gap-4">
-          <section>
-            <div className="grid grid-cols-2 xl:grid-cols-5 xl:grid-rows-2 gap-4">
-              <Info label={t("name_label")} text="Hynek Fišera" double={true} className="max-xl:!col-span-1" />
-              <Info label={t("location_label")} text={t("location")} double={true} />
-              <Image src={Photo} alt={t("photo_alt")} className="xl:h-full w-full rounded-xl xl:rounded-3xl row-start-1 col-start-2 xl:row-start-auto xl:col-start-auto xl:row-span-2" />
-              <Info label={t("age_label")} text={t("age")} />
-              <Info label={t("personality_label")} text="INFJ-T" />
-              <Info label={t("education_label")} text={t("education")} double={true} />
+          <Section>
+            <div className="w-full max-w-[16rem] xl:max-w-5xl mx-auto flex flex-col-reverse xl:flex-row xl:justify-between items-center gap-6 xl:gap-0">
+              <div className="w-full flex flex-col justify-center xl:py-4 gap-6 xl:gap-8">
+                <div className="flex flex-col">
+                  <div className="text-gray-500 sm:text-lg lg:text-lg">{t("intro")}</div>
+                  <div className="text-2xl sm:text-3xl xl:text-4xl font-bold text-indigo-600">Hynek Fišera</div>
+                  <div className="uppercase text-gray-700 font-medium text-xs sm:text-sm lg:text-lg">
+                    {process.env.NEXT_PUBLIC_AGE}, <a>INFJ-T</a>
+                  </div>
+                </div>
+                <div className="grid xl:grid-cols-3 gap-4 xl:gap-12">
+                  <Info label={t("location_label")} text={t("location")} />
+                  <Info label={t("education_label")} text={t("education")} double />
+                </div>
+              </div>
+              <Image src={Photo} alt={t("photo_alt")} className="h-full max-h-[8rem] xl:max-h-[12rem] w-auto rounded-2xl" />
             </div>
-          </section>
+          </Section>
           <section className="grid xl:grid-cols-5 gap-4">
             <Section className="xl:col-span-3">
               <SectionHeading>{t("work_heading")}</SectionHeading>
@@ -113,15 +121,15 @@ export default function AboutMe(props: any) {
 
 const Info = ({ label, text, double, className }: { label: string; text: string; double?: boolean; className?: string }) => {
   return (
-    <div className={`flex flex-col justify-center p-4 xl:p-6 gap-1 border border-gray-200 rounded-xl xl:rounded-3xl ${double ? "col-span-2" : ""} ${className ?? ""}`}>
-      <div className="uppercase text-gray-600 text-xs sm:text-sm lg:text-base">{label}</div>
-      <div className="sm:text-xl xl:text-2xl font-semibold text-indigo-600">{text}</div>
+    <div className={`flex flex-col justify-center gap-1 ${double ? "col-span-2" : ""} ${className ?? ""}`}>
+      <div className="uppercase text-gray-500 text-sm sm:text-base">{label}</div>
+      <div className="text-lg max-w-[14rem] xl:max-w-none sm:text-xl xl:text-2xl font-semibold text-indigo-600">{text}</div>
     </div>
   );
 };
 
 const Section = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-  return <section className={`pt-6 md:p-6 ${className ?? ""}`}>{children}</section>;
+  return <section className={`pt-6 md:p-6 xl:bg-gray-100 xl:rounded-3xl ${className ?? ""}`}>{children}</section>;
 };
 
 const SectionHeading = ({ children }: { children: string }) => {
