@@ -70,7 +70,7 @@ export default function AboutMe(props: any) {
                   <Info label={t("education_label")} text={t("education")} double />
                 </div>
               </div>
-              <Image src={Photo} alt={t("photo_alt")} className="h-full max-h-[8rem] xl:max-h-[12rem] w-auto rounded-2xl" />
+              <Image src={Photo} alt={t("photo_alt")} className="w-full max-w-[8rem] xl:max-w-[11rem] h-auto rounded-2xl" />
             </div>
           </Section>
           <section className="grid xl:grid-cols-5 gap-4">
