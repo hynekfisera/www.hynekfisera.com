@@ -55,7 +55,7 @@ export default function AboutMe(props: any) {
       <main className="max-w-lg xl:max-w-screen-xl mx-auto px-8 py-2 sm:py-8">
         <h1 className="text-center text-2xl sm:text-3xl font-medium mb-6 sm:mb-8 text-gray-800">{t("heading")}</h1>
         <div className="grid gap-4">
-          <Section>
+          <Section className="bg-gray-100 rounded-3xl max-sm:py-8 sm:max-xl:py-12">
             <div className="w-full max-w-[16rem] xl:max-w-5xl mx-auto flex flex-col-reverse xl:flex-row xl:justify-between items-center gap-6 xl:gap-0">
               <div className="w-full flex flex-col justify-center xl:py-4 gap-6 xl:gap-8">
                 <div className="flex flex-col">
