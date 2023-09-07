@@ -14,7 +14,7 @@ export default function Footer() {
           <img className="h-full w-auto" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=hynekfisera&button_colour=6366f1&font_colour=f1f5f9&font_family=Inter&outline_colour=000000&coffee_colour=f1f5f9" alt="Buy Me a Coffee" />
         </a>
       </div>
-      <div className="text-center text-gray-500">
+      <div className="text-xs sm:text-sm lg:text-base text-center text-gray-500">
         {t("built_deployed")}{" "}
         <a href="https://nextjs.org/" className="text-indigo-400 hover:underline" target="_blank" rel="noopener noreferrer">
           Next.js
