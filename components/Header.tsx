@@ -1,35 +1,34 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition, faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-
-type Link = {
-  text: string;
-  href: string;
-  button?: boolean;
-  icon?: IconDefinition;
-};
+import { LinkWrapper } from "../pages/links";
+import { Link as LinkType } from "../types/HeaderLink";
 
 export default function Header() {
   const { t } = useTranslation("header");
   const { locale, asPath } = useRouter();
 
-  const links: Array<Link> = [
+  const links: Array<LinkType> = [
     {
+      type: "internal",
       text: "Portfolio",
       href: "/",
     },
     {
+      type: "internal",
       text: t("about"),
       href: "/about-me",
     },
     {
+      type: "internal",
       text: t("links"),
       href: "/links",
     },
     {
+      type: "external",
       text: t("contact"),
       href: "mailto:hynek@flairleap.com",
       button: true,
@@ -62,15 +61,15 @@ export default function Header() {
             {links.map((link) => {
               if (link.button) {
                 return (
-                  <Link href={link.href} key={link.href} onClick={() => setVisible(false)} className="btn btn-primary">
+                  <LinkWrapper link={link} key={link.href} onClick={() => setVisible(false)} className="btn btn-primary">
                     {link.text} {link.icon && <FontAwesomeIcon icon={link.icon} className="text-sm" />}
-                  </Link>
+                  </LinkWrapper>
                 );
               } else {
                 return (
-                  <Link href={link.href} key={link.href} onClick={() => setVisible(false)} className="select-none font-medium tracking-wide text-slate-600 hover:underline decoration-gray-500">
+                  <LinkWrapper link={link} key={link.href} onClick={() => setVisible(false)} className="select-none font-medium tracking-wide text-slate-600 hover:underline decoration-gray-500">
                     {link.text}
-                  </Link>
+                  </LinkWrapper>
                 );
               }
             })}

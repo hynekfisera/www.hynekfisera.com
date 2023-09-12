@@ -11,6 +11,7 @@ import { Section, SectionLink } from "../types/Links";
 import ArfiIcon from "/public/assets/arfi_icon_small.png";
 import HynekIcon from "/public/assets/hynek_icon_small.jpg";
 import TwitchIcon from "/public/assets/twitch_icon_small.jpg";
+import { Link as LinkType } from "../types/HeaderLink";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -192,23 +193,23 @@ export default function Links(props: any) {
   );
 }
 
-const LinkWrapper = ({ link, children, className, onCopy }: { link: SectionLink; children: React.ReactNode; className: string; onCopy: (href: string) => void }) => {
+export const LinkWrapper = ({ link, children, className, onCopy, onClick }: { link: SectionLink | LinkType; children: React.ReactNode; className: string; onCopy?: (href: string) => void; onClick?: () => void }) => {
   switch (link.type) {
     case "internal":
       return (
-        <Link href={link.href} className={className}>
+        <Link href={link.href} className={className} onClick={onClick ?? (() => {})}>
           {children}
         </Link>
       );
     case "external":
       return (
-        <a href={link.href} target="_blank" rel="noreferrer noopener" className={className}>
+        <a href={link.href} target="_blank" rel="noreferrer noopener" className={className} onClick={onClick ?? (() => {})}>
           {children}
         </a>
       );
     case "copy":
       return (
-        <button onClick={() => onCopy(link.href)} className={`${className} text-left`}>
+        <button onClick={() => (onCopy ? onCopy(link.href) : () => {})} className={`${className} text-left`}>
           {children}
         </button>
       );
