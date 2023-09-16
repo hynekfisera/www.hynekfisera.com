@@ -40,20 +40,20 @@ export default function Header() {
 
   return (
     <header className={`max-w-screen-xl mx-auto p-8 flex justify-between items-center ${visible && "bg-white"} sm:bg-none`}>
-      <Link href="/" onClick={() => setVisible(false)} className="select-none text-lg font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-purple-600">
+      <Link href="/" onClick={() => setVisible(false)} className="select-none text-lg font-semibold uppercase tracking-wider text-indigo-600">
         Hynek Fišera
       </Link>
       <div className="flex gap-4">
-        <div className="flex sm:flex-row-reverse gap-2 sm:gap-4">
+        <div className="flex sm:flex-row-reverse gap-2 sm:gap-3.5">
           <div className="grid place-items-center">
             <Link
               href={asPath}
               onClick={() => setVisible(false)}
               locale={locale === "en" ? "cs" : "en"}
               title={locale === "en" ? "Switch language" : "Změnit jazyk"}
-              className="text-[0.6rem] bg-slate-100 border border-slate-200 rounded-xl font-semibold group text-slate-600 select-none uppercase tracking-wider px-2.5 py-1"
+              className="text-[0.6rem] bg-slate-100 border border-slate-200 hover:border-slate-300 rounded-xl font-semibold group text-slate-700 select-none uppercase tracking-wider px-2.5 py-1"
             >
-              <span className="text-slate-400 group-hover:text-slate-600">{locale === "en" ? "cs" : "en"} | </span>
+              <span className="text-slate-400 group-hover:text-slate-700">{locale === "en" ? "cs" : "en"} | </span>
               {locale === "en" ? "en" : "cs"}
             </Link>
           </div>
@@ -67,7 +67,7 @@ export default function Header() {
                 );
               } else {
                 return (
-                  <LinkWrapper link={link} key={link.href} onClick={() => setVisible(false)} className="select-none font-medium tracking-wide text-slate-600 hover:underline decoration-gray-500">
+                  <LinkWrapper link={link} key={link.href} onClick={() => setVisible(false)} className="select-none tracking-wide text-slate-900 hover:underline underline-offset-2 pt-0.5 decoration-gray-900">
                     {link.text}
                   </LinkWrapper>
                 );
