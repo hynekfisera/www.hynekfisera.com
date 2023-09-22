@@ -67,7 +67,7 @@ export default function Header() {
                 );
               } else {
                 return (
-                  <LinkWrapper link={link} key={link.href} onClick={() => setVisible(false)} className="select-none tracking-wide text-slate-900 hover:underline underline-offset-2 pt-0.5 decoration-gray-900">
+                  <LinkWrapper link={link} key={link.href} onClick={() => setVisible(false)} className={`select-none tracking-wide text-slate-700 hover:text-slate-950 transition-all duration-200 decoration-indigo-400 underline-offset-4 decoration-2 ${asPath === link.href ? "underline" : ""}`}>
                     {link.text}
                   </LinkWrapper>
                 );
