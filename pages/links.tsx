@@ -26,7 +26,7 @@ const links = [
     title: "GitHub",
     icon: faGithub,
     href: "https://github.com/hynekfisera",
-    priority: 2,
+    priority: 3,
   },
   {
     title: "LinkedIn",
@@ -35,19 +35,9 @@ const links = [
     priority: 1,
   },
   {
-    title: "Twitter",
-    icon: faTwitter,
-    href: "https://twitter.com/hynekfisera",
-  },
-  {
     title: "Instagram",
     icon: faInstagram,
     href: "https://instagram.com/hynekfisera",
-  },
-  {
-    title: "Discord server",
-    icon: faDiscord,
-    href: "https://arfi.cz/discord",
   },
   {
     title: "Spotify",
@@ -60,24 +50,15 @@ const links = [
     href: "https://goodreads.com/hynekfisera",
   },
   {
-    title: "Flairleap",
-    icon: faLink,
-    href: "https://flairleap.com/hynekfisera",
+    title: "Behance",
+    icon: faBehanceSquare,
+    href: "https://behance.net/hynekfisera",
+    priority: 2,
   },
   {
-    title: "Quizlet",
-    icon: faLink,
-    href: "https://quizlet.com/hynekfisera",
-  },
-  {
-    title: "Patreon",
-    icon: faPatreon,
-    href: "https://patreon.com/hynekfisera",
-  },
-  {
-    title: "Buy Me a Coffee",
-    icon: faLink,
-    href: "https://buymeacoffee.com/hynekfisera",
+    title: "Twitch",
+    icon: faTwitch,
+    href: "https://twitch.tv/arfilive",
   },
 ];
 
@@ -112,7 +93,6 @@ export default function Links(props: any) {
       ],
       className: "bg-pink-50/70 border-pink-100",
     },
-    { title: "Twitch", icon: faTwitch, links: [{ type: "external", title: "ArfiLive", description: t("twitch_description"), href: "https://twitch.tv/arfilive", image: TwitchIcon }], className: "bg-violet-50/70 border-violet-100" },
     { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
     { title: "Discord", icon: faDiscord, links: [{ type: "copy", title: "@hynekfisera", description: t("email_description"), href: "hynekfisera" }], className: "bg-indigo-50/70 border-indigo-100" },
   ];
