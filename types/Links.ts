@@ -1,5 +1,5 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { StaticImageData } from "next/dist/client/image";
+import { StaticImageData } from "next/image";
 
 export type Section = {
   title: string;
