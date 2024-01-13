@@ -31,6 +31,8 @@ import UHrochuPortfolio from "/public/portfolio/portfolioUHrochu.png";
 import ASMR from "/public/portfolio/asmr.svg";
 import ASMRPortfolio from "/public/portfolio/portfolioAsmr.png";
 import VWAPortfolio from "/public/portfolio/portfolioVwa.png";
+import Batcore from "/public/portfolio/batcore.svg";
+import BatcorePortfolio from "/public/portfolio/portfolioBatcore.png";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation, Trans } from "next-i18next";
 import { NextSeo } from "next-seo";
@@ -129,11 +131,18 @@ const Home: NextPage = (props) => {
       name: t("category_design_and_other"),
       projects: [
         {
-          image: UHrochuPortfolio,
-          logo: UHrochu,
-          name: "Roubenka U Hrochů",
-          description: t("portfolio_uhrochu"),
-          href: "https://www.roubenkauhrochu.cz/",
+          image: BatcorePortfolio,
+          logo: Batcore,
+          name: "BatCore.eu",
+          description: t("portfolio_batcore"),
+          href: "https://www.behance.net/gallery/188816001/Responsive-logo-for-BatCoreeu",
+        },
+        {
+          image: EryesPortfolio,
+          logo: Eryes,
+          name: "Eryes",
+          description: t("portfolio_eryes"),
+          href: "https://www.twitch.tv/eryesloleague",
         },
         {
           image: GarnetPortfolio,
@@ -143,11 +152,11 @@ const Home: NextPage = (props) => {
           href: "https://github.com/GarnetOS",
         },
         {
-          image: EryesPortfolio,
-          logo: Eryes,
-          name: "Eryes",
-          description: t("portfolio_eryes"),
-          href: "https://www.twitch.tv/eryesloleague",
+          image: UHrochuPortfolio,
+          logo: UHrochu,
+          name: "Roubenka U Hrochů",
+          description: t("portfolio_uhrochu"),
+          href: "https://www.roubenkauhrochu.cz/",
         },
       ],
     },
