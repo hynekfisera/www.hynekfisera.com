@@ -8,7 +8,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import Footer from "../components/Footer";
 config.autoAddCss = false;
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { appWithTranslation } from "next-i18next";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";

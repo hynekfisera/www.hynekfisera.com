@@ -1,4 +1,4 @@
-import { faArrowDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUpRightFromSquare, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -66,40 +66,70 @@ const Home: NextPage = (props) => {
           logo: Flairleap,
           name: "Flairleap",
           description: t("portfolio_flairleap"),
-          href: "https://flairleap.com/?force_landing=1",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://flairleap.com/?force_landing=1",
+            },
+          ],
         },
         {
           image: ASMRPortfolio,
           logo: ASMR,
           name: "interactiveASMR",
           description: t("portfolio_asmr"),
-          href: "https://asmr.hynekfisera.com/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://asmr.hynekfisera.com/",
+            },
+          ],
         },
         {
           image: HelpdeskPortfolio,
           logo: Helpdesk,
           name: "HelpDesk",
           description: t("portfolio_helpdesk"),
-          href: "https://kyberna.cz/",
+          links: [
+            {
+              type: "client",
+              href: "https://kyberna.cz/",
+            },
+          ],
         },
         {
           image: ArticlesPortfolio,
           name: "Article remover",
           description: t("portfolio_articles"),
-          href: "https://odstraneni-clenu.hynekfisera.com/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://odstraneni-clenu.hynekfisera.com/",
+            },
+          ],
         },
         {
           image: KittisarusPortfolio,
           name: "Kittisaurus",
           description: t("portfolio_kittisarus"),
-          href: "https://kittisaurus.hynekfisera.com/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://kittisaurus.hynekfisera.com/",
+            },
+          ],
         },
         {
           image: SwiftpassPortfolio,
           logo: Swiftpass,
           name: "Swiftpass",
           description: t("portfolio_swiftpass"),
-          href: "https://swiftpass.hynekfisera.com/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://swiftpass.hynekfisera.com/",
+            },
+          ],
         },
       ],
     },
@@ -111,19 +141,34 @@ const Home: NextPage = (props) => {
           logo: Arfi,
           name: "Arfi",
           description: t("portfolio_arfi"),
-          href: "https://arfi.cz/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://arfi.cz/",
+            },
+          ],
         },
         {
           image: VWAPortfolio,
           name: "VWA",
           description: t("portfolio_vwa"),
-          href: "https://vwa.cz/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://vwa.cz/",
+            },
+          ],
         },
         {
           image: NekrPortfolio,
           name: "HNK NEKR",
           description: t("portfolio_nekr"),
-          href: "https://hnk-nekr.cz/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://hnk-nekr.cz/",
+            },
+          ],
         },
       ],
     },
@@ -135,28 +180,52 @@ const Home: NextPage = (props) => {
           logo: Batcore,
           name: "BatCore.eu",
           description: t("portfolio_batcore"),
-          href: "https://www.behance.net/gallery/188816001/Responsive-logo-for-BatCoreeu",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://www.behance.net/gallery/188816001/Responsive-logo-for-BatCoreeu",
+            },
+            {
+              type: "client",
+              href: "https://batcore.eu/",
+            },
+          ],
         },
         {
           image: EryesPortfolio,
           logo: Eryes,
           name: "Eryes",
           description: t("portfolio_eryes"),
-          href: "https://www.twitch.tv/eryesloleague",
+          links: [
+            {
+              type: "client",
+              href: "https://www.twitch.tv/eryesloleague",
+            },
+          ],
         },
         {
           image: GarnetPortfolio,
           logo: Garnet,
           name: "Garnet",
           description: t("portfolio_garnet"),
-          href: "https://github.com/GarnetOS",
+          links: [
+            {
+              type: "client",
+              href: "https://github.com/GarnetOS",
+            },
+          ],
         },
         {
           image: UHrochuPortfolio,
           logo: UHrochu,
           name: "Roubenka U Hrochů",
           description: t("portfolio_uhrochu"),
-          href: "https://www.roubenkauhrochu.cz/",
+          links: [
+            {
+              type: "client",
+              href: "https://www.roubenkauhrochu.cz/",
+            },
+          ],
         },
       ],
     },
@@ -167,21 +236,36 @@ const Home: NextPage = (props) => {
           image: EkoPortfolio,
           name: "EKO odpisy",
           description: t("portfolio_eko"),
-          href: "https://eko-odpisy.hynekfisera.com/",
+          links: [
+            {
+              type: "learn_more",
+              href: "https://eko-odpisy.hynekfisera.com/",
+            },
+          ],
         },
         {
           image: NyliumPortfolio,
           logo: Nylium,
           name: "Nylium",
           description: t("portfolio_nylium"),
-          href: "https://dev.hynekfisera.com/nylium/",
+          links: [
+            {
+              type: "preview",
+              href: "https://dev.hynekfisera.com/nylium/",
+            },
+          ],
         },
         {
           image: VrccPortfolio,
           logo: Vrcc,
           name: "VRCC",
           description: t("portfolio_vrcc"),
-          href: "https://dev.hynekfisera.com/vrcc/",
+          links: [
+            {
+              type: "preview",
+              href: "https://dev.hynekfisera.com/vrcc/",
+            },
+          ],
         },
         {
           image: AcewillPortfolio,
@@ -252,11 +336,13 @@ const Home: NextPage = (props) => {
                       <h2 className={`text-gray-800 font-semibold text-2xl sm:text-3xl text-center ${project.logo && "hidden"}`}>{project.name}</h2>
                     </div>
                     <div className="text-center sm:text-lg font-medium text-gray-800">{project.description}</div>
-                    {project.href && (
-                      <a href={project.href} className="select-none uppercase text-sm font-medium text-indigo-600 hover:text-indigo-400" rel="noopener noreferrer" target="_blank">
-                        {t("learn_more")} <FontAwesomeIcon icon={faChevronRight} />
-                      </a>
-                    )}
+                    <div className="flex flex-wrap gap-4">
+                      {project.links?.map((link) => (
+                        <a href={link.href} key={link.href} className={`select-none uppercase text-sm font-medium transition duration-200 ${link.type === "learn_more" ? "text-indigo-600 hover:text-indigo-500" : "text-gray-500 hover:text-gray-400"}`} rel="noopener noreferrer" target="_blank">
+                          {t(link.type)} <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        </a>
+                      ))}
+                    </div>
                   </WaitForAnimation>
                 ))}
               </div>
