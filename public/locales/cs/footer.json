@@ -9,6 +9,12 @@
     "projects": {
       "name": "Moje projekty"
     },
+    "resources": {
+      "name": "Zdroje",
+      "links": {
+        "branding": "Značka"
+      }
+    },
     "other": {
       "name": "Ostatní",
       "links": {

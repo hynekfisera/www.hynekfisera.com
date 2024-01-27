@@ -71,11 +71,11 @@ export default function Links(props: any) {
         title={t("title")}
         description={t("description")}
         // @ts-ignore
-        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links"}
+        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/contact" : "https://www.hynekfisera.cz/contact"}
         openGraph={{
           type: "website",
           // @ts-ignore
-          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links",
+          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/contact" : "https://www.hynekfisera.cz/contact",
           title: t("title"),
           description: t("description"),
           site_name: "Hynek Fišera",
@@ -83,11 +83,11 @@ export default function Links(props: any) {
         languageAlternates={[
           {
             hrefLang: "en",
-            href: "https://www.hynekfisera.com/links",
+            href: "https://www.hynekfisera.com/contact",
           },
           {
             hrefLang: "cs",
-            href: "https://www.hynekfisera.cz/links",
+            href: "https://www.hynekfisera.cz/contact",
           },
         ]}
         nofollow={true}

@@ -108,7 +108,7 @@ export default function AboutMe(props: any) {
           <Section>
             <SectionHeading>{t("contact_heading")}</SectionHeading>
             <LinkGroup>
-              <SectionLink fa={faLink} title={t("links")} description={t("links_description")} href="/links" />
+              <SectionLink fa={faLink} title={t("links")} description={t("links_description")} href="/contact" />
               <SectionLink fa={faLinkedin} title="LinkedIn" description={t("linkedin")} href="https://linkedin.com/in/hynekfisera" external={true} />
               <SectionLink fa={faEnvelope} title="Email" description="hynek@flairleap.com" href="mailto:hynek@flairleap.com" external={true} />
             </LinkGroup>

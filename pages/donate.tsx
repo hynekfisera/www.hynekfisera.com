@@ -22,11 +22,11 @@ export default function Donate(props: any) {
         title={t("title")}
         description={t("description")}
         // @ts-ignore
-        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links"}
+        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/donate" : "https://www.hynekfisera.cz/donate"}
         openGraph={{
           type: "website",
           // @ts-ignore
-          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links",
+          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/donate" : "https://www.hynekfisera.cz/donate",
           title: t("title"),
           description: t("description"),
           site_name: "Hynek Fišera",
@@ -34,11 +34,11 @@ export default function Donate(props: any) {
         languageAlternates={[
           {
             hrefLang: "en",
-            href: "https://www.hynekfisera.com/links",
+            href: "https://www.hynekfisera.com/donate",
           },
           {
             hrefLang: "cs",
-            href: "https://www.hynekfisera.cz/links",
+            href: "https://www.hynekfisera.cz/donate",
           },
         ]}
       />

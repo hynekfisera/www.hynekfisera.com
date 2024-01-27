@@ -90,6 +90,16 @@ export default function Footer() {
       ],
     },
     {
+      name: t("sections.resources.name"),
+      links: [
+        {
+          type: "internal",
+          name: t("sections.resources.links.branding"),
+          href: "/branding",
+        },
+      ],
+    },
+    {
       name: t("sections.other.name"),
       links: [
         {
@@ -114,8 +124,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="max-w-screen-lg mx-auto p-8 py-12 flex flex-col items-center gap-12">
-      <section className="w-full grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+    <footer className="max-w-screen-lg mx-auto p-8 py-14 flex flex-col items-center gap-12">
+      <section className="w-full grid gap-4 md:grid-cols-2 xl:grid-cols-6">
         <div className="md:col-span-2 flex flex-col items-start gap-4">
           <Image src={Logo} alt="Logo" className="w-full max-w-[72px] h-auto" />
           <div className="flex justify-start flex-wrap gap-4">

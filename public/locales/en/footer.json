@@ -4,10 +4,16 @@
   "donate": "Donate",
   "sections": {
     "content": {
-      "name": "This website"
+      "name": "Website"
     },
     "projects": {
       "name": "My projects"
+    },
+    "resources": {
+      "name": "Resources",
+      "links": {
+        "branding": "Branding"
+      }
     },
     "other": {
       "name": "Other",
