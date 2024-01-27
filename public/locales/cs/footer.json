@@ -1,5 +1,19 @@
 {
   "built_deployed": "Vytvořeno za pomocí",
   "and": "a",
-  "donate": "Podpora"
+  "donate": "Podpora",
+  "sections": {
+    "content": {
+      "name": "Obsah"
+    },
+    "projects": {
+      "name": "Moje projekty"
+    },
+    "other": {
+      "name": "Ostatní",
+      "links": {
+        "top": "Zpět nahoru"
+      }
+    }
+  }
 }

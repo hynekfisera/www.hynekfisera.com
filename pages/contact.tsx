@@ -16,7 +16,7 @@ import { Link as LinkType } from "../types/HeaderLink";
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["header", "footer", "links", "index"])),
+      ...(await serverSideTranslations(locale, ["header", "footer", "contact", "index"])),
     },
   };
 }
@@ -26,39 +26,19 @@ const links = [
     title: "GitHub",
     icon: faGithub,
     href: "https://github.com/hynekfisera",
-    priority: 3,
+    priority: 2,
   },
   {
     title: "LinkedIn",
     icon: faLinkedin,
     href: "https://linkedin.com/in/hynekfisera",
-    priority: 1,
-  },
-  {
-    title: "Instagram",
-    icon: faInstagram,
-    href: "https://instagram.com/hynekfisera",
-  },
-  {
-    title: "Spotify",
-    icon: faSpotify,
-    href: "https://open.spotify.com/user/hynekfisera",
-  },
-  {
-    title: "Goodreads",
-    icon: faLink,
-    href: "https://goodreads.com/hynekfisera",
+    priority: 3,
   },
   {
     title: "Behance",
     icon: faBehanceSquare,
     href: "https://behance.net/hynekfisera",
-    priority: 2,
-  },
-  {
-    title: "Twitch",
-    icon: faTwitch,
-    href: "https://twitch.tv/arfilive",
+    priority: 1,
   },
 ];
 
@@ -69,30 +49,12 @@ links.sort((a, b) => {
 });
 
 export default function Links(props: any) {
-  const { t }: any = useTranslation("links");
+  const { t }: any = useTranslation("contact");
   const [copied, setCopied] = useState("");
-  const [viewMore, setViewMore] = useState(false);
+  // nastavit výchozí hodnotu na false pokud to ještě budu chtít v budoucnu použít
+  const [viewMore, setViewMore] = useState(true);
 
   const sections: Section[] = [
-    {
-      title: t("websites"),
-      icon: faGlobe,
-      links: [
-        { type: "internal", title: "Portfolio", description: t("working_on", { ns: "index" }), href: "/" },
-        { type: "external", title: "Arfi.cz", description: t("website_arfi_description"), href: "https://arfi.cz/" },
-        { type: "external", title: "VWA.cz", description: t("website_vwa_description"), href: "https://vwa.cz/" },
-      ],
-      className: "bg-indigo-50/70 border-indigo-100",
-    },
-    {
-      title: "YouTube",
-      icon: faYoutube,
-      links: [
-        { type: "external", title: "Arfi", description: t("youtube_arfi_description"), href: "https://youtube.com/@phpMyArfi", image: ArfiIcon },
-        { type: "external", title: "Hynek", description: t("youtube_hynek_description"), href: "https://youtube.com/@Haineku", image: HynekIcon },
-      ],
-      className: "bg-pink-50/70 border-pink-100",
-    },
     { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
     { title: "Discord", icon: faDiscord, links: [{ type: "copy", title: "@hynekfisera", description: t("email_description"), href: "hynekfisera" }], className: "bg-indigo-50/70 border-indigo-100" },
   ];
