@@ -14,6 +14,8 @@ import ArfiIcon from "/public/assets/arfi_icon_small.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition, faArrowUpRightFromSquare, faCode, faEnvelope, faLink } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { useRouter } from "next/router";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 
 export async function getStaticProps({ locale }: any) {
   return {
@@ -25,6 +27,7 @@ export async function getStaticProps({ locale }: any) {
 
 export default function AboutMe(props: any) {
   const { t }: any = useTranslation("about-me");
+  const { locale } = useRouter();
 
   return (
     <>
@@ -62,7 +65,10 @@ export default function AboutMe(props: any) {
                   <div className="text-gray-500 sm:text-lg lg:text-lg">{t("intro")}</div>
                   <div className="text-2xl sm:text-3xl xl:text-4xl font-bold text-indigo-600">Hynek Fišera</div>
                   <div className="uppercase text-gray-700 font-medium text-xs sm:text-sm lg:text-lg">
-                    {process.env.NEXT_PUBLIC_AGE}, <a>INFJ-T</a>
+                    {process.env.NEXT_PUBLIC_AGE}, INFJ-T
+                    <a className="text-xs align-text-top ml-0.5 text-gray-500 hover:text-gray-700" href={locale === "en" ? "https://www.16personalities.com/infj-personality" : "https://www.16personalities.com/cs/infj-osobnost"} target="_blank" rel="noopener noreferrer">
+                      <FontAwesomeIcon icon={faCircleQuestion} />
+                    </a>
                   </div>
                 </div>
                 <div className="grid xl:grid-cols-3 gap-4 xl:gap-12">
@@ -109,7 +115,6 @@ export default function AboutMe(props: any) {
             <SectionHeading>{t("contact_heading")}</SectionHeading>
             <LinkGroup>
               <SectionLink fa={faLink} title={t("links")} description={t("links_description")} href="/contact" />
-              <SectionLink fa={faLinkedin} title="LinkedIn" description={t("linkedin")} href="https://linkedin.com/in/hynekfisera" external={true} />
               <SectionLink fa={faEnvelope} title="Email" description="hynek@flairleap.com" href="mailto:hynek@flairleap.com" external={true} />
             </LinkGroup>
           </Section>

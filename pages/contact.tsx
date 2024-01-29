@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArtstation, faBehanceSquare, faDeviantart, faDiscord, faDribbble, faFacebook, faGithub, faInstagram, faLinkedin, faPatreon, faReddit, faSpotify, faTiktok, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faArtstation, faBehanceSquare, faDeviantart, faDiscord, faDribbble, faFacebook, faGithub, faInstagram, faLinkedin, faPatreon, faReddit, faSpotify, faTiktok, faTwitch, faTwitter, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare, faChevronDown, faEnvelope, faGlobe, faLink } from "@fortawesome/free-solid-svg-icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -40,6 +40,21 @@ const links = [
     href: "https://behance.net/hynekfisera",
     priority: 1,
   },
+  {
+    title: "Twitch",
+    icon: faTwitch,
+    href: "https://twitch.tv/arfilive",
+  },
+  {
+    title: "Instagram",
+    icon: faInstagram,
+    href: "https://instagram.com/hynekfisera",
+  },
+  {
+    title: "X (formerly Twitter)",
+    icon: faXTwitter,
+    href: "https://x.com/hynekfisera",
+  },
 ];
 
 links.sort((a, b) => {
@@ -51,11 +66,10 @@ links.sort((a, b) => {
 export default function Links(props: any) {
   const { t }: any = useTranslation("contact");
   const [copied, setCopied] = useState("");
-  // nastavit výchozí hodnotu na false pokud to ještě budu chtít v budoucnu použít
-  const [viewMore, setViewMore] = useState(true);
+  const [viewMore, setViewMore] = useState(false);
 
   const sections: Section[] = [
-    { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
+    { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-purple-50/70 border-purple-100" },
     { title: "Discord", icon: faDiscord, links: [{ type: "copy", title: "@hynekfisera", description: t("email_description"), href: "hynekfisera" }], className: "bg-indigo-50/70 border-indigo-100" },
   ];
 

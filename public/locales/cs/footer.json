@@ -4,7 +4,10 @@
   "donate": "Podpora",
   "sections": {
     "content": {
-      "name": "Obsah"
+      "name": "Obsah",
+      "links": {
+        "donate": "Podpora"
+      }
     },
     "projects": {
       "name": "Moje projekty"
@@ -12,7 +15,8 @@
     "resources": {
       "name": "Zdroje",
       "links": {
-        "branding": "Značka"
+        "branding": "Značka",
+        "equipment": "Vybavení"
       }
     },
     "other": {

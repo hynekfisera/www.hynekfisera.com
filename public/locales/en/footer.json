@@ -4,7 +4,10 @@
   "donate": "Donate",
   "sections": {
     "content": {
-      "name": "Website"
+      "name": "Website",
+      "links": {
+        "donate": "Donate"
+      }
     },
     "projects": {
       "name": "My projects"
@@ -12,7 +15,8 @@
     "resources": {
       "name": "Resources",
       "links": {
-        "branding": "Branding"
+        "branding": "Branding",
+        "equipment": "Equipment"
       }
     },
     "other": {

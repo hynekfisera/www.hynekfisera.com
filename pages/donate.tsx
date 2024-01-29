@@ -41,6 +41,8 @@ export default function Donate(props: any) {
             href: "https://www.hynekfisera.cz/donate",
           },
         ]}
+        noindex={true}
+        nofollow={true}
       />
       <main className="py-8">
         <h1 className="text-center text-3xl font-semibold mb-4">{t("heading")}</h1>

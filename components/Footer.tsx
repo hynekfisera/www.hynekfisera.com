@@ -6,6 +6,7 @@ import Image from "next/image";
 import Logo from "/public/assets/hf_indigo.svg";
 import { faBehance, faGithub, faInstagram, faLinkedinIn, faTwitch, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const icons = [
   {
@@ -59,6 +60,11 @@ export default function Footer() {
         },
         {
           type: "internal",
+          name: t("sections.content.links.donate"),
+          href: "/donate",
+        },
+        {
+          type: "internal",
           name: t("contact", { ns: "header" }),
           href: "/contact",
         },
@@ -90,22 +96,18 @@ export default function Footer() {
       ],
     },
     {
-      name: t("sections.resources.name"),
-      links: [
-        {
-          type: "internal",
-          name: t("sections.resources.links.branding"),
-          href: "/branding",
-        },
-      ],
-    },
-    {
       name: t("sections.other.name"),
       links: [
         {
           type: "internal",
           name: t("sections.other.links.top"),
           href: "#top",
+        },
+        {
+          type: "external",
+          name: t("sections.resources.links.branding"),
+          href: "https://antalya.hynekfisera.com/files/Hynek/",
+          nofollow: true,
         },
         {
           type: "external",
@@ -125,9 +127,9 @@ export default function Footer() {
 
   return (
     <footer className="max-w-screen-lg mx-auto p-8 py-14 flex flex-col items-center gap-12">
-      <section className="w-full grid gap-4 md:grid-cols-2 xl:grid-cols-6">
-        <div className="md:col-span-2 flex flex-col items-start gap-4">
-          <Image src={Logo} alt="Logo" className="w-full max-w-[72px] h-auto" />
+      <section className="w-full grid gap-6 xl:gap-2 sm:grid-cols-3 xl:grid-cols-9 xl:pl-16">
+        <div className="sm:col-span-3 xl:col-span-3 flex flex-col items-start gap-4">
+          <Image src={Logo} alt="Logo" className="w-full max-w-[48px] md:max-w-[72px] h-auto" />
           <div className="flex justify-start flex-wrap gap-4">
             {icons.map((icon) => (
               <a className="text-lg text-gray-600 hover:text-indigo-500 transition duration-200" key={icon.href} href={icon.href} aria-label={icon.name} target="_blank" rel="noopener noreferrer">
@@ -137,7 +139,7 @@ export default function Footer() {
           </div>
         </div>
         {sections.map((section) => (
-          <div key={section.name} className="flex flex-col gap-1.5">
+          <div key={section.name} className="flex flex-col gap-1.5 xl:col-span-2">
             <h3 className="text-lg font-medium text-indigo-500">{section.name}</h3>
             <ul className="flex flex-col gap-2">
               {section.links.map((link) => (
@@ -148,7 +150,7 @@ export default function Footer() {
                     </Link>
                   ) : (
                     <a className="text-gray-600 hover:text-indigo-500 transition duration-200" href={link.href} target="_blank" rel={`noopener noreferrer ${link.nofollow ? "nofollow" : ""}`}>
-                      {link.name}
+                      {link.name} <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-xs mb-0.5" />
                     </a>
                   )}
                 </li>
