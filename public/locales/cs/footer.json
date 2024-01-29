@@ -1,5 +1,29 @@
 {
   "built_deployed": "Vytvořeno za pomocí",
   "and": "a",
-  "donate": "Podpora"
+  "donate": "Podpora",
+  "sections": {
+    "content": {
+      "name": "Obsah",
+      "links": {
+        "donate": "Podpora"
+      }
+    },
+    "projects": {
+      "name": "Moje projekty"
+    },
+    "resources": {
+      "name": "Zdroje",
+      "links": {
+        "branding": "Značka",
+        "equipment": "Vybavení"
+      }
+    },
+    "other": {
+      "name": "Ostatní",
+      "links": {
+        "top": "Zpět nahoru"
+      }
+    }
+  }
 }

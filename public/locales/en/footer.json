@@ -1,5 +1,29 @@
 {
   "built_deployed": "Built & deployed using",
   "and": "and",
-  "donate": "Donate"
+  "donate": "Donate",
+  "sections": {
+    "content": {
+      "name": "Website",
+      "links": {
+        "donate": "Donate"
+      }
+    },
+    "projects": {
+      "name": "My projects"
+    },
+    "resources": {
+      "name": "Resources",
+      "links": {
+        "branding": "Branding",
+        "equipment": "Equipment"
+      }
+    },
+    "other": {
+      "name": "Other",
+      "links": {
+        "top": "Back to top"
+      }
+    }
+  }
 }

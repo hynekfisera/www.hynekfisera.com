@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { LinkWrapper } from "../pages/links";
+import { LinkWrapper } from "../pages/contact";
 import { Link as LinkType } from "../types/HeaderLink";
 
 export default function Header() {
@@ -24,15 +24,8 @@ export default function Header() {
     },
     {
       type: "internal",
-      text: t("links"),
-      href: "/links",
-    },
-    {
-      type: "external",
       text: t("contact"),
-      href: "mailto:hynek@flairleap.com",
-      button: true,
-      icon: faEnvelope,
+      href: "/contact",
     },
   ];
 
@@ -44,7 +37,7 @@ export default function Header() {
         Hynek Fišera
       </Link>
       <div className="flex gap-4">
-        <div className="flex sm:flex-row-reverse gap-2 sm:gap-3.5">
+        <div className="flex sm:flex-row-reverse gap-2 sm:gap-5">
           <div className="grid place-items-center">
             <Link
               href={asPath}

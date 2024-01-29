@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NextSeo } from "next-seo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArtstation, faBehanceSquare, faDeviantart, faDiscord, faDribbble, faFacebook, faGithub, faInstagram, faLinkedin, faPatreon, faReddit, faSpotify, faTiktok, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faArtstation, faBehanceSquare, faDeviantart, faDiscord, faDribbble, faFacebook, faGithub, faInstagram, faLinkedin, faPatreon, faReddit, faSpotify, faTiktok, faTwitch, faTwitter, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare, faChevronDown, faEnvelope, faGlobe, faLink } from "@fortawesome/free-solid-svg-icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -16,7 +16,7 @@ import { Link as LinkType } from "../types/HeaderLink";
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["header", "footer", "links", "index"])),
+      ...(await serverSideTranslations(locale, ["header", "footer", "contact", "index"])),
     },
   };
 }
@@ -26,13 +26,24 @@ const links = [
     title: "GitHub",
     icon: faGithub,
     href: "https://github.com/hynekfisera",
-    priority: 3,
+    priority: 2,
   },
   {
     title: "LinkedIn",
     icon: faLinkedin,
     href: "https://linkedin.com/in/hynekfisera",
+    priority: 3,
+  },
+  {
+    title: "Behance",
+    icon: faBehanceSquare,
+    href: "https://behance.net/hynekfisera",
     priority: 1,
+  },
+  {
+    title: "Twitch",
+    icon: faTwitch,
+    href: "https://twitch.tv/arfilive",
   },
   {
     title: "Instagram",
@@ -40,25 +51,9 @@ const links = [
     href: "https://instagram.com/hynekfisera",
   },
   {
-    title: "Spotify",
-    icon: faSpotify,
-    href: "https://open.spotify.com/user/hynekfisera",
-  },
-  {
-    title: "Goodreads",
-    icon: faLink,
-    href: "https://goodreads.com/hynekfisera",
-  },
-  {
-    title: "Behance",
-    icon: faBehanceSquare,
-    href: "https://behance.net/hynekfisera",
-    priority: 2,
-  },
-  {
-    title: "Twitch",
-    icon: faTwitch,
-    href: "https://twitch.tv/arfilive",
+    title: "X (formerly Twitter)",
+    icon: faXTwitter,
+    href: "https://x.com/hynekfisera",
   },
 ];
 
@@ -69,31 +64,12 @@ links.sort((a, b) => {
 });
 
 export default function Links(props: any) {
-  const { t }: any = useTranslation("links");
+  const { t }: any = useTranslation("contact");
   const [copied, setCopied] = useState("");
   const [viewMore, setViewMore] = useState(false);
 
   const sections: Section[] = [
-    {
-      title: t("websites"),
-      icon: faGlobe,
-      links: [
-        { type: "internal", title: "Portfolio", description: t("working_on", { ns: "index" }), href: "/" },
-        { type: "external", title: "Arfi.cz", description: t("website_arfi_description"), href: "https://arfi.cz/" },
-        { type: "external", title: "VWA.cz", description: t("website_vwa_description"), href: "https://vwa.cz/" },
-      ],
-      className: "bg-indigo-50/70 border-indigo-100",
-    },
-    {
-      title: "YouTube",
-      icon: faYoutube,
-      links: [
-        { type: "external", title: "Arfi", description: t("youtube_arfi_description"), href: "https://youtube.com/@phpMyArfi", image: ArfiIcon },
-        { type: "external", title: "Hynek", description: t("youtube_hynek_description"), href: "https://youtube.com/@Haineku", image: HynekIcon },
-      ],
-      className: "bg-pink-50/70 border-pink-100",
-    },
-    { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-fuchsia-50/70 border-fuchsia-100" },
+    { title: "Email", icon: faEnvelope, links: [{ type: "copy", title: "hynek@flairleap.com", description: t("email_description"), href: "hynek@flairleap.com" }], className: "bg-purple-50/70 border-purple-100" },
     { title: "Discord", icon: faDiscord, links: [{ type: "copy", title: "@hynekfisera", description: t("email_description"), href: "hynekfisera" }], className: "bg-indigo-50/70 border-indigo-100" },
   ];
 
@@ -109,11 +85,11 @@ export default function Links(props: any) {
         title={t("title")}
         description={t("description")}
         // @ts-ignore
-        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links"}
+        canonical={props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/contact" : "https://www.hynekfisera.cz/contact"}
         openGraph={{
           type: "website",
           // @ts-ignore
-          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/links" : "https://www.hynekfisera.cz/links",
+          url: props._nextI18Next.initialLocale === "en" ? "https://www.hynekfisera.com/contact" : "https://www.hynekfisera.cz/contact",
           title: t("title"),
           description: t("description"),
           site_name: "Hynek Fišera",
@@ -121,11 +97,11 @@ export default function Links(props: any) {
         languageAlternates={[
           {
             hrefLang: "en",
-            href: "https://www.hynekfisera.com/links",
+            href: "https://www.hynekfisera.com/contact",
           },
           {
             hrefLang: "cs",
-            href: "https://www.hynekfisera.cz/links",
+            href: "https://www.hynekfisera.cz/contact",
           },
         ]}
         nofollow={true}
