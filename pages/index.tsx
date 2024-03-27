@@ -178,16 +178,16 @@ const Home: NextPage = (props) => {
         {
           image: BatcorePortfolio,
           logo: Batcore,
-          name: "BatCore.eu",
+          name: "BatCore.net",
           description: t("portfolio_batcore"),
           links: [
             {
               type: "learn_more",
-              href: "https://www.behance.net/gallery/188816001/Responsive-logo-for-BatCoreeu",
+              href: "https://www.behance.net/gallery/188816001/Responsive-logo-for-BatCorenet",
             },
             {
               type: "client",
-              href: "https://batcore.eu/",
+              href: "https://batcore.net/",
             },
           ],
         },
